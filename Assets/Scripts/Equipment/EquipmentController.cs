@@ -25,6 +25,10 @@ public class EquipmentController : MonoBehaviour
     [SerializeField]
     private bool autoEquipSubsequentItems = false;
 
+    [Tooltip("The transform to which instantiated equipment is attached.")]
+    [SerializeField]
+    private Transform equippedItemAnchor = null;
+
     /// <summary>
     /// The items making up the player's inventory.
     /// </summary>
@@ -47,6 +51,11 @@ public class EquipmentController : MonoBehaviour
     private int itemCount = 0;
 
     /// <summary>
+    /// The <see cref="Equipment"/> that is currently equipped.
+    /// </summary>
+    private Equipment equippedItem = null;
+
+    /// <summary>
     /// Adds the provided <see cref="ItemType"/> to the inventory.
     /// </summary>
     /// <param name="item">The item that will be added.</param>
@@ -54,13 +63,13 @@ public class EquipmentController : MonoBehaviour
     {
         if(item == null)
         {
-            Debug.Log("Failed to add item to inventory, item is null.");
+            Debug.LogWarning("Failed to add item to inventory, item is null.");
             return;
         }
 
         if(!IsValidInventoryIndex(nextFreeIndex))
         {
-            Debug.Log("Failed to add item to inventory, nextFreeIndex is out-of-bounds.");
+            Debug.LogError("Failed to add item to inventory, nextFreeIndex is out-of-bounds.");
             return;
         }
 
@@ -83,17 +92,64 @@ public class EquipmentController : MonoBehaviour
         Debug.Log("Item '" + item.DisplayName + "' was added to the inventory.");
     }
 
+    /// <summary>
+    /// Instantiates and equips the <see cref="Equipment"/> for the <see cref="ItemType"/>
+    /// at a provided index within the inventory.
+    /// </summary>
+    /// <param name="index">Index for the target item.</param>
     public void EquipItemAtIndex(int index)
     {
         if(!IsValidInventoryIndex(index))
         {
-            Debug.Log("Failed to equip item at index " + index + ", index out-of-bounds.");
+            Debug.LogError("Failed to equip item at index " + index + ", index out-of-bounds.");
             return;
         }
 
-        // Equipping code...
+        UnequipCurrentEquipment();
 
-        equippedItemIndex = index;
+        // Find the item to equip.
+        ItemType itemToEquip = inventoryItems[index];
+
+        // Invalid item.
+        if(itemToEquip == null) 
+        {
+            Debug.LogWarning("Failed to equip item, item at index is null");
+            return;
+        }
+
+        if(itemToEquip.EquipmentPrefab == null)
+        {
+            Debug.LogWarning("Failed to equip '" + itemToEquip.name + "', missing equipment prefab.");
+            return;
+        }
+
+        // Create the new equipment and find the equipment interfaces it may have.
+        equippedItem = Instantiate(itemToEquip.EquipmentPrefab, equippedItemAnchor);
+        if(equippedItem != null)
+        {
+            equippedItem.Equip();
+
+            // #TODO_Equipment: interface finding.
+
+            equippedItemIndex = index;
+        }
+    }
+
+    /// <summary>
+    /// Unequips and destroys the currently equipped <see cref="Equipment"/>.
+    /// </summary>
+    private void UnequipCurrentEquipment()
+    {
+        if(equippedItem != null)
+        {
+            equippedItem.Unequip();
+
+            // Destroy the equipped item and clean up interface references.
+            Destroy(equippedItem.gameObject);
+            equippedItem = null;
+
+            equippedItemIndex = INVALID_ITEM;
+        }
     }
 
     /// <summary>
