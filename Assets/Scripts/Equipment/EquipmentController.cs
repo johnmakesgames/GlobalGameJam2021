@@ -46,14 +46,17 @@ public class EquipmentController : MonoBehaviour
     private int nextFreeIndex = 0;
 
     /// <summary>
-    /// The number of items within the inventory.
-    /// </summary>
-    private int itemCount = 0;
-
-    /// <summary>
     /// The <see cref="Equipment"/> that is currently equipped.
     /// </summary>
     private Equipment equippedItem = null;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ActivateEquipment();
+        }
+    }
 
     /// <summary>
     /// Adds the provided <see cref="ItemType"/> to the inventory.
@@ -77,7 +80,7 @@ public class EquipmentController : MonoBehaviour
         inventoryItems[nextFreeIndex] = item;
 
         // Auto item equipping.
-        if((itemCount == 0) && autoEquipFirstItem)
+        if((nextFreeIndex == 0) && autoEquipFirstItem)
         {
             EquipItemAtIndex(nextFreeIndex);
         }
@@ -88,8 +91,6 @@ public class EquipmentController : MonoBehaviour
 
         // Ready for next item.
         ++nextFreeIndex;
-
-        Debug.Log("Item '" + item.DisplayName + "' was added to the inventory.");
     }
 
     /// <summary>
@@ -129,9 +130,19 @@ public class EquipmentController : MonoBehaviour
         {
             equippedItem.Equip();
 
-            // #TODO_Equipment: interface finding.
-
             equippedItemIndex = index;
+        }
+    }
+
+    private void ActivateEquipment()
+    {
+        if(equippedItem != null)
+        {
+            IActivate activate = equippedItem.GetComponent<IActivate>();
+            if(activate != null)
+            {
+                activate.Activate(this);
+            }
         }
     }
 
