@@ -2,8 +2,11 @@ using UnityEngine;
 
 /// <summary>
 /// <see cref="ItemType"/> describes the data and prefabs required
-/// for a single item.
+/// for a single item. Each item is unique (no separate instances)
+/// so any item can be fully referred to using a reference to it's
+/// <see cref="ItemType"/>.
 /// </summary>
+[CreateAssetMenu(fileName = "New Item Type", menuName = "GGJ 2021/Item Type")]
 public class ItemType : ScriptableObject
 {
     [Tooltip("In-game name for the item.")]
