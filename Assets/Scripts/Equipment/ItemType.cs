@@ -16,7 +16,7 @@ public class ItemType : ScriptableObject
 
     [Tooltip("The vibes of the item, determines how AI agents will react to it's presence.")]
     [SerializeField]
-    private ItemVibe[] itemVibes = null;
+    private Vibe[] itemVibes = null;
 
     [Header("Prefabs")]
     [Tooltip("Prefab for the item's equipment game object.")]
@@ -35,7 +35,7 @@ public class ItemType : ScriptableObject
     /// <summary>
     /// The vibes of the item, determines how AI agents will react to it's presence.
     /// </summary>
-    public ItemVibe[] ItemVibes { get { return itemVibes; } }
+    public Vibe[] ItemVibes { get { return itemVibes; } }
 
     /// <summary>
     /// Prefab for the item's equipment game object.

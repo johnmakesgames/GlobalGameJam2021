@@ -52,7 +52,7 @@ public class EquipmentController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0))
         {
             ActivateEquipment();
         }
@@ -119,7 +119,6 @@ public class EquipmentController : MonoBehaviour
         // Invalid item.
         if(itemToEquip == null) 
         {
-            Debug.LogWarning("Failed to equip item, item at index is null");
             return;
         }
 
