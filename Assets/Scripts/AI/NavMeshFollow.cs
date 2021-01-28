@@ -11,6 +11,7 @@ public class NavMeshFollow : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private AgentController agentController;
     float timesincerefresh;
+    bool onLink = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,11 @@ public class NavMeshFollow : MonoBehaviour
                 break;
             case AITypes.CAR:
                 navMeshAgent.speed = 10;
-                navMeshAgent.angularSpeed = 250;
-                navMeshAgent.acceleration = 8;
+                navMeshAgent.angularSpeed = 400;
+                navMeshAgent.autoTraverseOffMeshLink = true;
+                navMeshAgent.acceleration = 10;
                 navMeshAgent.autoBraking = true;
+                navMeshAgent.avoidancePriority = 1;
                 locations = GameObject.FindGameObjectsWithTag("DriveToLocation");
                 targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
                 timesincerefresh = 0;
@@ -50,10 +53,15 @@ public class NavMeshFollow : MonoBehaviour
 
     private void Update()
     {
+        if (agentController.AiType == AITypes.CAR)
+            Debug.DrawLine(this.GetComponent<Transform>().position, targetLocation, Color.green);
+
         timesincerefresh += Time.deltaTime;
 
-        if (Vector3.Distance(targetLocation, this.GetComponent<Transform>().position) < 10 || timesincerefresh > 5)
+        if (Vector3.Distance(targetLocation, this.GetComponent<Transform>().position) < 2)
         {
+            Debug.Log("Going to new location");
+
             GameObject[] locations;
             switch (agentController.AiType)
             {
@@ -80,6 +88,22 @@ public class NavMeshFollow : MonoBehaviour
                 default:
                     break;
             }
+
+            navMeshAgent.SetDestination(targetLocation);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (navMeshAgent.isOnOffMeshLink && !onLink)
+        {
+            onLink = true;
+            navMeshAgent.speed = 3;
+        }
+        else if (!navMeshAgent.isOnOffMeshLink && onLink)
+        {
+            onLink = false;
+            navMeshAgent.speed = 10;
         }
     }
 }
