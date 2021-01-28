@@ -7,9 +7,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public float PlayerSpeedModifier = 0.01f;
     public float jumpHeight = 0.5f;
+    public Animator playerAnimator;
 
     private CharacterController playerController;
     private bool playerGrounded;
+    private bool playerAnimating = false;
+    private bool playerDig = false;
+    private bool playerShake = false;
     private Vector3 playerVelocity;
 
     // Start is called before the first frame update
@@ -26,26 +30,41 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerGrounded = playerController.isGrounded;
-        if(playerGrounded && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
 
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * PlayerSpeedModifier;
-        playerController.Move(move);
+            playerGrounded = playerController.isGrounded;
+            if (playerGrounded && playerVelocity.y < 0)
+            {
+                playerVelocity.y = 0f;
+            }
 
-        if(move != Vector3.zero)
-        {
-            transform.forward = move;
-        }
+            Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * PlayerSpeedModifier;
+            playerController.Move(move);
 
-        if(Input.GetKeyDown(KeyCode.Space) && playerGrounded)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -1.0f * -9.8f);
-        }
+            if (move != Vector3.zero)
+            {
+                transform.forward = move;
+            }
 
-        playerVelocity.y += -9.8f * Time.deltaTime;
-        playerController.Move(playerVelocity);
+            if (Input.GetKeyDown(KeyCode.Space) && playerGrounded)
+            {
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -1.0f * -9.8f);
+            }
+
+            playerVelocity.y += -9.8f * Time.deltaTime;
+            playerController.Move(playerVelocity);
+
+            if(Input.GetKey(KeyCode.E)) //hold key down
+            {
+                //Play Dig Animation
+                playerAnimating = true;
+                playerAnimator.SetTrigger("Shaking");
+            }
+            else
+            {
+                playerAnimator.ResetTrigger("Shaking");
+            }
+       
+        
+
     }
 }
