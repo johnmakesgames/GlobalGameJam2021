@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExampleOnHowToUseComponents1 : MonoBehaviour
 {
     public float timePassedCounter;
+    public float modifier;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class ExampleOnHowToUseComponents1 : MonoBehaviour
         timePassedCounter += Time.deltaTime;
 
         Transform t = this.GetComponent<Transform>();
-        t.position = t.position + new Vector3(Mathf.Sin(timePassedCounter) / 1000, 0, 0);
+        t.position = t.position + new Vector3(Mathf.Sin(timePassedCounter) / modifier, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
