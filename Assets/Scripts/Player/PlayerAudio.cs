@@ -9,6 +9,8 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip angryBarkNoise;
     public AudioClip happyBarkNoise; //room to add more
     public float reputation = 0.0f;
+    public float barkEffectRadius = 5.0f;
+    public Vibe barkEffectVibe = null;
 
     private AudioSource source;
     private bool Bark = false;
@@ -42,8 +44,23 @@ public class PlayerAudio : MonoBehaviour
             {
                 source.PlayOneShot(angryBarkNoise);
             }
-            
+
+            BarkVibeMessage();
+
             Bark = false;
+        }
+    }
+
+    private void BarkVibeMessage()
+    {
+        Collider[] overlaps = Physics.OverlapSphere(transform.position, barkEffectRadius);
+        foreach(Collider collider in overlaps)
+        {
+            VibeMessageHandler messageHandler = collider.GetComponent<VibeMessageHandler>();
+            if(messageHandler)
+            {
+                messageHandler.VibeMessage(barkEffectVibe, 0.1f);
+            }
         }
     }
 }
