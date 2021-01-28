@@ -17,13 +17,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.RotateAround(player.position, Vector3.up, 70 * Time.deltaTime);
             offset = transform.position - player.position;
         }
 
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.RotateAround(player.position, Vector3.up, -70 * Time.deltaTime);
             offset = transform.position - player.position;

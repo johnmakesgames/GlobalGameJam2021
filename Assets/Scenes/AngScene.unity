@@ -292,10 +292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2471294632350551748, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 8245426573784773463, guid: 72e1ff7b0e10ea248b0340047a5bb435, type: 3}
     - target: {fileID: 2471294632350551749, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
       propertyPath: m_Name
       value: Player
@@ -304,6 +300,10 @@ PrefabInstance:
       propertyPath: barkNoise
       value: 
       objectReference: {fileID: 8300000, guid: 053e63d82f94ce3439e6a484e1628b85, type: 3}
+    - target: {fileID: 2471294632350551752, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
+      propertyPath: jumpHeight
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2471294632350551759, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -360,11 +360,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2471294632350551755, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
-    - {fileID: 2471294632350551748, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
-    - {fileID: 2471294632350551754, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
-    - {fileID: 2471294632350551753, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
 --- !u!1 &822824331 stripped
 GameObject:
