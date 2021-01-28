@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0346620c99af4eb43aef5c146f6a790b, type: 3}
+  m_Name: Water Gun
+  m_EditorClassIdentifier: 
+  displayName: Water Gun
+  itemVibes:
+  - {fileID: 11400000, guid: 6312bb9b6cbe4744384c0e18c7de5db7, type: 2}
+  equipmentPrefab: {fileID: 1288575852629281608, guid: 3591d468ed186ff4b9c956fd6223d50f, type: 3}
+  pickupPrefab: {fileID: 4984722840153343056, guid: 746e151993ae48e4090722bee745a659, type: 3}
