@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0346620c99af4eb43aef5c146f6a790b, type: 3}
-  m_Name: Demo Item
+  m_Name: Water Gun
   m_EditorClassIdentifier: 
-  displayName: Demo Item
+  displayName: Water Gun
   itemVibes:
-  - {fileID: 11400000, guid: de3073249ad54114a9d2ed9b96ae4726, type: 2}
-  equipmentPrefab: {fileID: 1528742943859835675, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
-  pickupPrefab: {fileID: 9030688623321835847, guid: 26b48809412097949a7da7c9b810323d, type: 3}
+  - {fileID: 11400000, guid: 6312bb9b6cbe4744384c0e18c7de5db7, type: 2}
+  equipmentPrefab: {fileID: 1288575852629281608, guid: 3591d468ed186ff4b9c956fd6223d50f, type: 3}
+  pickupPrefab: {fileID: 4984722840153343056, guid: 746e151993ae48e4090722bee745a659, type: 3}

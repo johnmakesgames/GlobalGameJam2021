@@ -10,7 +10,7 @@ public class EquipmentController : MonoBehaviour
     /// The maximum number of <see cref="ItemType"/>s that can fit into the 
     /// inventory.
     /// </summary>
-    public static int MAXIMUM_INVENTORY_SIZE = 32;
+    public static int MAXIMUM_INVENTORY_SIZE = /*32*/2;
 
     /// <summary>
     /// Represents an invalid inventory item index.
@@ -55,6 +55,11 @@ public class EquipmentController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             ActivateEquipment();
+        }
+
+        if(Input.mouseScrollDelta.y != 0.0f)
+        {
+            ScrollEquipment(Input.mouseScrollDelta.y);
         }
     }
 
@@ -144,6 +149,14 @@ public class EquipmentController : MonoBehaviour
                 activate.Activate(this);
             }
         }
+    }
+
+    private void ScrollEquipment(float delta)
+    {
+        int indexToEquip = equippedItemIndex + (int)Mathf.Sign(delta);
+        indexToEquip = (indexToEquip < 0) ? (MAXIMUM_INVENTORY_SIZE - 1) : (indexToEquip % MAXIMUM_INVENTORY_SIZE);
+
+        EquipItemAtIndex(indexToEquip);
     }
 
     /// <summary>
