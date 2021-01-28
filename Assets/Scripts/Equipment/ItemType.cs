@@ -14,9 +14,18 @@ public class ItemType : ScriptableObject
     [SerializeField]
     private string displayName = "";
 
+    [Tooltip("The family this item belongs too.")]
+    [SerializeField]
+    private ItemFamily family = ItemFamily.Equippable;
+
     [Tooltip("The vibes of the item, determines how AI agents will react to it's presence.")]
     [SerializeField]
     private Vibe[] itemVibes = null;
+
+    [Header("UI")]
+    [Tooltip("The UI icon for the item.")]
+    [SerializeField]
+    private Sprite icon = null;
 
     [Header("Prefabs")]
     [Tooltip("Prefab for the item's equipment game object.")]
@@ -33,9 +42,19 @@ public class ItemType : ScriptableObject
     public string DisplayName { get { return displayName; } }
 
     /// <summary>
+    /// The family this item belongs too.
+    /// </summary>
+    public ItemFamily Family { get { return family; } }
+
+    /// <summary>
     /// The vibes of the item, determines how AI agents will react to it's presence.
     /// </summary>
     public Vibe[] ItemVibes { get { return itemVibes; } }
+
+    /// <summary>
+    /// The UI icon for the item.
+    /// </summary>
+    public Sprite Icon { get { return icon; } }
 
     /// <summary>
     /// Prefab for the item's equipment game object.
