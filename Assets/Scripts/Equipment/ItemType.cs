@@ -9,10 +9,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Type", menuName = "GGJ 2021/Item Type")]
 public class ItemType : ScriptableObject
 {
+    [Header("Config")]
     [Tooltip("In-game name for the item.")]
     [SerializeField]
     private string displayName = "";
 
+    [Tooltip("The vibes of the item, determines how AI agents will react to it's presence.")]
+    [SerializeField]
+    private ItemVibe[] itemVibes = null;
+
+    [Header("Prefabs")]
     [Tooltip("Prefab for the item's equipment game object.")]
     [SerializeField]
     private Equipment equipmentPrefab = null;
@@ -25,6 +31,11 @@ public class ItemType : ScriptableObject
     /// In-game name for the item.
     /// </summary>
     public string DisplayName { get { return displayName; } }
+
+    /// <summary>
+    /// The vibes of the item, determines how AI agents will react to it's presence.
+    /// </summary>
+    public ItemVibe[] ItemVibes { get { return itemVibes; } }
 
     /// <summary>
     /// Prefab for the item's equipment game object.
