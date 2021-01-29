@@ -11,11 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController playerController;
     private bool playerGrounded;
-    private bool playerAnimating = false;
-    private bool playerDig = false;
-    private bool playerShake = false;
     private Vector3 playerVelocity;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -105,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Debug.Log(CurrentState);
-        //Debug.Log(move); //Player Velocity.Y is the only thing affected so can only be used to calculate jump // move.y unaffected
+        //Debug.Log(playerVelocity.y); //Player Velocity.Y is the only thing affected so can only be used to calculate jump // move.y unaffected
 
     }
 }

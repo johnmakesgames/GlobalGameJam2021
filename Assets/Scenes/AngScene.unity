@@ -490,6 +490,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2471294632350551749, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
   m_PrefabInstance: {fileID: 564394573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &822824332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2471294632350551752, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
+  m_PrefabInstance: {fileID: 564394573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822824331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9483d97c611dd06419be043811a9decf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &822824333
 CharacterController:
   m_ObjectHideFlags: 0
@@ -520,7 +531,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.882
+  m_Volume: 0.376
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -633,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 1014966946}
+  playerMovement: {fileID: 822824332}
   CurrentAnimationState: 0
 --- !u!4 &822824337 stripped
 Transform:
