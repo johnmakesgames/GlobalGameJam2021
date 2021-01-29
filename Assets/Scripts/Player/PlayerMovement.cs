@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public float PlayerSpeedModifier = 0.01f;
     public float jumpHeight = 0.5f;
-    PlayerAnimation.PlayerAnimationState CurrentState;
+    public PlayerAnimation.PlayerAnimationState CurrentState;
 
     private CharacterController playerController;
     private bool playerGrounded;
@@ -88,8 +88,23 @@ public class PlayerMovement : MonoBehaviour
             CurrentState = PlayerAnimation.PlayerAnimationState.Petting;
         }
 
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
+        }
 
-        Debug.Log(CurrentState);
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            CurrentState = PlayerAnimation.PlayerAnimationState.Dead;
+        }
+
+
+        //Debug.Log(CurrentState);
         //Debug.Log(move); //Player Velocity.Y is the only thing affected so can only be used to calculate jump // move.y unaffected
 
     }

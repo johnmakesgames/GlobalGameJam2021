@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField]
     public Animator playerAnimator;
+    public PlayerMovement playerMovement;
     public PlayerAnimationState CurrentAnimationState;
 
     public enum PlayerAnimationState { Idle, Walking, Running, Shaking, Digging, Jumping, Falling, Attacking, Sniffing, WaggingTail, Sleeping, Petting, Dead }
@@ -21,6 +22,8 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CurrentAnimationState = playerMovement.CurrentState;
+
         if(CurrentAnimationState != PreviousState)
         {
             ResetAnimationTrigger();
@@ -98,6 +101,8 @@ public class PlayerAnimation : MonoBehaviour
             {
                 playerAnimator.SetTrigger("Dead");
             }
+
+           // Debug.Log(CurrentAnimationState);
 
             PreviousState = CurrentAnimationState;
         }
