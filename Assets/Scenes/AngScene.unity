@@ -620,6 +620,20 @@ MonoBehaviour:
   angryBarkNoise: {fileID: 8300000, guid: 053e63d82f94ce3439e6a484e1628b85, type: 3}
   happyBarkNoise: {fileID: 8300000, guid: 053e63d82f94ce3439e6a484e1628b85, type: 3}
   reputation: 0
+--- !u!114 &822824336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822824331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d76b2e2b9c2aa8499768e190eaf2204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 1014966946}
+  CurrentAnimationState: 0
 --- !u!4 &822824337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2471294632350551759, guid: dc0d32734bb15d042a182cc61bce11bf, type: 3}
