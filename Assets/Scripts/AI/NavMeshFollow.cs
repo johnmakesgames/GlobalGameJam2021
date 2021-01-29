@@ -68,20 +68,12 @@ public class NavMeshFollow : MonoBehaviour
                 case AITypes.PERSON:
                     break;
                 case AITypes.CAR:
-                    navMeshAgent.speed = 10;
-                    navMeshAgent.angularSpeed = 250;
-                    navMeshAgent.acceleration = 8;
-                    navMeshAgent.autoBraking = true;
                     locations = GameObject.FindGameObjectsWithTag("DriveToLocation");
                     targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
                     timesincerefresh = 0;
                     break;
                 case AITypes.BOAT:
-                    navMeshAgent.speed = 30;
-                    navMeshAgent.angularSpeed = 80;
-                    navMeshAgent.acceleration = 8;
-                    navMeshAgent.autoBraking = true;
-                    locations = GameObject.FindGameObjectsWithTag("Boat");
+                    locations = GameObject.FindGameObjectsWithTag("SailToLocation");
                     targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
                     timesincerefresh = 0;
                     break;
