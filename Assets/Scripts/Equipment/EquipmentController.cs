@@ -17,6 +17,11 @@ public class EquipmentController : MonoBehaviour
     /// </summary>
     public static int INVALID_ITEM = -1;
 
+    /// <summary>
+    /// Event broadcast each time an item is equipped.
+    /// </summary>
+    public event System.Action<ItemType> EventEquippedItem = null;
+
     [Tooltip("Should the first item that is added into the inventory be equipped automatically?")]
     [SerializeField]
     private bool autoEquipFirstItem = true;
@@ -133,6 +138,7 @@ public class EquipmentController : MonoBehaviour
         if(equippedItem != null)
         {
             equippedItem.Equip();
+            EventEquippedItem?.Invoke(itemToEquip);
 
             equippedItemIndex = index;
         }
