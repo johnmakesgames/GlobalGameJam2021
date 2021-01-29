@@ -124,7 +124,6 @@ public class EquipmentController : MonoBehaviour
     {
         if(!IsValidInventoryIndex(index))
         {
-            Debug.LogError("Failed to equip item at index " + index + ", index out-of-bounds.");
             return;
         }
 
@@ -201,6 +200,11 @@ public class EquipmentController : MonoBehaviour
 
     private void ScrollEquipment(float delta)
     {
+        if(equippedItemIndex == INVALID_ITEM)
+        {
+            return;
+        }
+
         int indexToEquip = equippedItemIndex + (int)Mathf.Sign(delta);
         indexToEquip = (indexToEquip < 0) ? (nextFreeIndex - 1) : (indexToEquip % nextFreeIndex);
 
