@@ -10,7 +10,7 @@ public class EquipmentController : MonoBehaviour
     /// The maximum number of <see cref="ItemType"/>s that can fit into the 
     /// inventory.
     /// </summary>
-    public static int MAXIMUM_INVENTORY_SIZE = /*32*/2;
+    public static int MAXIMUM_INVENTORY_SIZE = 32;
 
     /// <summary>
     /// Represents an invalid inventory item index.
@@ -21,6 +21,11 @@ public class EquipmentController : MonoBehaviour
     /// Event broadcast each time an item is equipped.
     /// </summary>
     public event System.Action<ItemType> EventEquippedItem = null;
+
+    /// <summary>
+    /// Broadcast when an item is added to the inventory.
+    /// </summary>
+    public event System.Action<ItemType> EventItemAddedToInventory = null;
 
     [Tooltip("Should the first item that is added into the inventory be equipped automatically?")]
     [SerializeField]
@@ -49,6 +54,11 @@ public class EquipmentController : MonoBehaviour
     /// items cannot be removed from the inventory and this value will simply count up.
     /// </summary>
     private int nextFreeIndex = 0;
+
+    /// <summary>
+    /// The number of items in the inventory.
+    /// </summary>
+    private int itemCount = 0;
 
     /// <summary>
     /// The <see cref="Equipment"/> that is currently equipped.
@@ -88,9 +98,11 @@ public class EquipmentController : MonoBehaviour
 
         // Add the item to the inventory.
         inventoryItems[nextFreeIndex] = item;
+        ++itemCount;
+        EventItemAddedToInventory?.Invoke(item);
 
         // Auto item equipping.
-        if((nextFreeIndex == 0) && autoEquipFirstItem)
+        if ((nextFreeIndex == 0) && autoEquipFirstItem)
         {
             EquipItemAtIndex(nextFreeIndex);
         }
@@ -137,11 +149,42 @@ public class EquipmentController : MonoBehaviour
         equippedItem = Instantiate(itemToEquip.EquipmentPrefab, equippedItemAnchor);
         if(equippedItem != null)
         {
+            equippedItemIndex = index;
+
             equippedItem.Equip();
             EventEquippedItem?.Invoke(itemToEquip);
-
-            equippedItemIndex = index;
         }
+    }
+
+    public ItemType GetEquippedItem()
+    {
+        return IsValidInventoryIndex(equippedItemIndex) ? inventoryItems[equippedItemIndex] : null;
+    }
+
+    public ItemType GetPreviousItem()
+    {
+        int index = equippedItemIndex -1;
+        index = (index < 0) ? (itemCount - 1) : (index % itemCount);
+
+        if(IsValidInventoryIndex(index))
+        {
+            return inventoryItems[index];
+        }
+
+        return null;
+    }
+
+    public ItemType GetNextItem()
+    {
+        int index = equippedItemIndex + 1;
+        index = (index < 0) ? (itemCount - 1) : (index % itemCount);
+
+        if (IsValidInventoryIndex(index))
+        {
+            return inventoryItems[index];
+        }
+
+        return null;
     }
 
     private void ActivateEquipment()
@@ -159,7 +202,7 @@ public class EquipmentController : MonoBehaviour
     private void ScrollEquipment(float delta)
     {
         int indexToEquip = equippedItemIndex + (int)Mathf.Sign(delta);
-        indexToEquip = (indexToEquip < 0) ? (MAXIMUM_INVENTORY_SIZE - 1) : (indexToEquip % MAXIMUM_INVENTORY_SIZE);
+        indexToEquip = (indexToEquip < 0) ? (nextFreeIndex - 1) : (indexToEquip % nextFreeIndex);
 
         EquipItemAtIndex(indexToEquip);
     }
