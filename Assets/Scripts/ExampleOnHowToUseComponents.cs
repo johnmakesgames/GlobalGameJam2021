@@ -18,7 +18,7 @@ public class ExampleOnHowToUseComponents : MonoBehaviour
         timePassedCounter += Time.deltaTime;
 
         Transform t = this.GetComponent<Transform>();
-        t.position = t.position + new Vector3(0, Mathf.Sin(timePassedCounter) /1000, 0);
+        t.position = t.position + new Vector3(0, Mathf.Sin(timePassedCounter) / 500, 0);
     }
 
     private void OnTriggerEnter(Collider other)
