@@ -6,6 +6,10 @@ TagManager:
   tags:
   - DriveToLocation
   - Boat
+  - Area2Blockade
+  - Area1Blockade
+  - Area3Blockade
+  - SailToLocation
   layers:
   - Default
   - TransparentFX
