@@ -12,8 +12,6 @@ public class NavMeshGuidesHider : MonoBehaviour
             this.GetComponent<Renderer>().enabled = false;
         }
 
-        
-
         var renderers = this.GetComponentsInChildren<Renderer>();
         foreach (var r in renderers)
         {

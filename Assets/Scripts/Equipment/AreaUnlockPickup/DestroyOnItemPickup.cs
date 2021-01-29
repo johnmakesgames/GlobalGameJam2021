@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class DestroyOnItemPickup : MonoBehaviour
 {
-    public string pickupName;
-
+    public int pickupIndex;
     void Start()
     {
-        // Register for delegate event.
+        AreaUnlockTracker.PickupCounterIncreased += OnItemPickedUp;
     }
 
-    // Destroy itself when the event is invoked.
-    void OnInvoke(string pickupName)
+    void OnItemPickedUp(int counter)
     {
-        if (pickupName == this.pickupName)
+        if (counter == pickupIndex)
         {
             Destroy(this.gameObject);
         }

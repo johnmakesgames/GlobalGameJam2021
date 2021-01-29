@@ -40,7 +40,7 @@ public class NavMeshFollow : MonoBehaviour
                 navMeshAgent.angularSpeed = 80;
                 navMeshAgent.acceleration = 8;
                 navMeshAgent.autoBraking = true;
-                locations = GameObject.FindGameObjectsWithTag("Boat");
+                locations = GameObject.FindGameObjectsWithTag("SailToLocation");
                 targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
                 timesincerefresh = 0;
                 break;

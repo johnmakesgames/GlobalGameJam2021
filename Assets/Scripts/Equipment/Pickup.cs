@@ -27,6 +27,9 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private float verticalBobSpeed = 1.0f;
 
+    public delegate void ItemPickedUp(ItemType itemType);
+    public static event ItemPickedUp OnItemPickedUp;
+
     private void Update()
     {
         if(pickupVisual != null)
@@ -46,6 +49,8 @@ public class Pickup : MonoBehaviour
         {
             equipmentController.AddItemToInventory(itemType);
         }
+
+        OnItemPickedUp(itemType);
 
         Destroy(gameObject);
     }
