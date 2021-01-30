@@ -20,6 +20,6 @@ public class CreatureAIAnimationController : MonoBehaviour
 
     private void OnAIStateChange(AIState newState)
     {
-        animator.Play(newState.Animation.name);
+        animator.Play(newState.GetRandomAnimation().name);
     }
 }

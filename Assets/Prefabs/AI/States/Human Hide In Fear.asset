@@ -21,4 +21,5 @@ MonoBehaviour:
   - decision: {fileID: 11400000, guid: cce9b303f2079d341aa48dca6825e215, type: 2}
     passState: {fileID: 11400000, guid: 35d55c4bf2042df41ad7a1ce48b85ec9, type: 2}
     failState: {fileID: 0}
-  animation: {fileID: -203655887218126122, guid: 9144bdcb8fca8ec4fa32040804a1f9b1, type: 3}
+  animations:
+  - {fileID: -203655887218126122, guid: 9144bdcb8fca8ec4fa32040804a1f9b1, type: 3}
