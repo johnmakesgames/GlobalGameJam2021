@@ -119,9 +119,10 @@ public class PlayerAnimation : MonoBehaviour
 
         if (playerMovement.DirectionToDigZone != Vector3.zero)
         {
-
+            //float angle = Vector3.Dot(GameObject.Find("SniffParticles").GetComponent<Transform>().forward, playerMovement.DirectionToDigZone);
             //set direction of sniff particles
-            GameObject.Find("SniffParticles").GetComponent<Transform>().rotation = (Quaternion.Euler(playerMovement.DirectionToDigZone));
+
+            GameObject.Find("SniffParticles").GetComponent<Transform>().rotation = Quaternion.LookRotation(playerMovement.DirectionToDigZone, Vector3.up);
             //sniffParticles.shape.rotation.Set(playerMovement.DirectionToDigZone.x, playerMovement.DirectionToDigZone.y, playerMovement.DirectionToDigZone.z);
             
             //Sniff
