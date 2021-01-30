@@ -12,6 +12,9 @@ public class NavMeshFollow : MonoBehaviour
     private AgentController agentController;
     bool onLink = false;
 
+    public Vector3 scriptedAgentLocation1;
+    public Vector3 scriptedAgentLocation2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,9 @@ public class NavMeshFollow : MonoBehaviour
                     break;
                 case AITypes.BOAT:
                     targetLocation = GetLocationToGoToFromTag("SailToLocation");
+                    break;
+                case AITypes.SCRIPTED_AGENT:
+                    targetLocation = GetFurthestOfScritpedLocations();
                     break;
                 default:
                     break;
@@ -68,6 +74,15 @@ public class NavMeshFollow : MonoBehaviour
                 navMeshAgent.autoBraking = true;
                 targetLocation = GetLocationToGoToFromTag("SailToLocation");
                 break;
+            case AITypes.SCRIPTED_AGENT:
+                navMeshAgent.speed = 10;
+                navMeshAgent.angularSpeed = 600;
+                navMeshAgent.autoTraverseOffMeshLink = true;
+                navMeshAgent.acceleration = 10;
+                navMeshAgent.autoBraking = true;
+                navMeshAgent.avoidancePriority = 1;
+                targetLocation = GetFurthestOfScritpedLocations();
+                break;
         }
 
         navMeshAgent.SetDestination(targetLocation);
@@ -77,6 +92,22 @@ public class NavMeshFollow : MonoBehaviour
     {
         var locations = GameObject.FindGameObjectsWithTag(tag);
         return locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
+    }
+
+    Vector3 GetFurthestOfScritpedLocations()
+    {
+        float distanceToOne = Vector3.Distance(this.transform.position, scriptedAgentLocation1);
+        float distanceToTwo = Vector3.Distance(this.transform.position, scriptedAgentLocation2);
+
+        if (distanceToOne > distanceToTwo)
+        {
+            return scriptedAgentLocation1;
+        }
+        else
+        {
+            return scriptedAgentLocation2;
+        }
+
     }
 
     void FixedUpdate()

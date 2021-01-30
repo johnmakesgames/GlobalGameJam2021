@@ -6,5 +6,6 @@ public enum AITypes
 {
     CAR,
     BOAT,
-    PERSON
+    PERSON,
+    SCRIPTED_AGENT,
 }
