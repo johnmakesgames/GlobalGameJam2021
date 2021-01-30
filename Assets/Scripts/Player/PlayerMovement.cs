@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     {
         playerController = GetComponent<CharacterController>();
         CurrentState = PlayerAnimation.PlayerAnimationState.Idle;
-        DigZones = GameObject.FindGameObjectsWithTag("Diggable");
     }
 
     private void FixedUpdate()
@@ -169,22 +168,33 @@ public class PlayerMovement : MonoBehaviour
 
    void FindNearestDigZone()
    {
-        NearestDigZone = DigZones[0];
-        float nearestDistance = (NearestDigZone.transform.position - transform.position).magnitude;
-        float newDistance;
-        foreach(GameObject g in DigZones)
+        DigZones = GameObject.FindGameObjectsWithTag("Diggable");
+        //Debug.Log(DigZones.Length);
+
+        if (DigZones.Length > 0)
         {
-            newDistance = (g.transform.position - transform.position).magnitude;
-
-            if(newDistance < nearestDistance)
+            NearestDigZone = DigZones[0];
+            float nearestDistance = (NearestDigZone.transform.position - transform.position).magnitude;
+            float newDistance;
+            foreach (GameObject g in DigZones)
             {
-                nearestDistance = newDistance;
-                NearestDigZone = g;
-            }
-        }
+                newDistance = (g.transform.position - transform.position).magnitude;
 
-        DirectionToDigZone = (NearestDigZone.transform.position - transform.position);
-        DirectionToDigZone.Normalize();
+                if (newDistance < nearestDistance)
+                {
+                    nearestDistance = newDistance;
+                    NearestDigZone = g;
+                }
+            }
+
+            DirectionToDigZone = (NearestDigZone.transform.position - transform.position);
+            DirectionToDigZone.Normalize();
+        }
+        else
+        {
+            DirectionToDigZone = Vector3.zero;
+        }
+        
    }
 
 }
