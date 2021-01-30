@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 0.5f;
     public PlayerAnimation.PlayerAnimationState CurrentState;
     public Vector3 DirectionToDigZone;
+    public Camera playerCamera;
 
     private CharacterController playerController;
     private bool playerGrounded;
@@ -46,12 +47,50 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * PlayerSpeedModifier;
-        playerController.Move(move);
+        // Movement based on camera direction
+        //Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * PlayerSpeedModifier;
+        //playerController.Move(move);
 
-        if (move != Vector3.zero)
+        //Debug.Log(playerCamera.transform.rotation);
+
+        Vector3 moveDirection = new Vector3(0, 0, 0);
+
+        if(Input.GetKey(KeyCode.W))
         {
-            transform.forward = move;
+            // move in the direction of camera
+            moveDirection = playerCamera.transform.forward;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            // reverse S
+            moveDirection = -playerCamera.transform.forward;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            // Move Camera Left
+            moveDirection = -playerCamera.transform.right;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            // Move Camera Right
+            moveDirection = playerCamera.transform.right;
+
+        }
+
+        moveDirection *= Time.deltaTime * PlayerSpeedModifier;
+        playerController.Move(moveDirection);
+
+        Debug.Log(moveDirection);
+
+
+
+
+        if (moveDirection != Vector3.zero)
+        {
+            transform.forward = moveDirection;
             CurrentState = PlayerAnimation.PlayerAnimationState.Walking;
         }
 
@@ -108,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Debug.Log(DigZones.Length);
+        //Debug.Log(DigZones.Length);
         // Not Context based Actions : Attack & Sniff (B for bark in audio)
 
         if (Input.GetKey(KeyCode.Alpha1))

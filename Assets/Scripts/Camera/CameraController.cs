@@ -27,7 +27,6 @@ public class CameraController : MonoBehaviour
         {
             transform.RotateAround(player.position, Vector3.up, -70 * Time.deltaTime);
             offset = transform.position - player.position;
-
         }
 
         transform.position = player.position + offset;
