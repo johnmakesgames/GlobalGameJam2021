@@ -685,6 +685,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 937060417171307639, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 6.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 937060417171307639, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937060417171307639, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1965186669688406881, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
