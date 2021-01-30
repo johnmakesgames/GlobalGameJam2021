@@ -15,6 +15,9 @@ MonoBehaviour:
   entryActions: []
   exitActions: []
   actions: []
-  transitions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 9a4cfd259a7518a47b164c2719896342, type: 2}
+    passState: {fileID: 11400000, guid: 5d7286866f285314eb5aad3081c927c0, type: 2}
+    failState: {fileID: 0}
   animations:
   - {fileID: -203655887218126122, guid: 19ea018408d0aee4d86a52571d061b91, type: 3}

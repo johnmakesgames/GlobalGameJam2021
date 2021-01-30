@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51fdf705956271f4689ee29c735e3fe6, type: 3}
-  m_Name: Trader Idle
+  m_Name: Trader Celebration
   m_EditorClassIdentifier: 
   entryActions: []
   exitActions: []
   actions: []
-  transitions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 47ca2fe80e7693a439239cf02999abf7, type: 2}
+    passState: {fileID: 11400000, guid: 46ad747ffae64b143b0c6921d723fe7c, type: 2}
+    failState: {fileID: 0}
   animations:
-  - {fileID: -203655887218126122, guid: 19ea018408d0aee4d86a52571d061b91, type: 3}
+  - {fileID: -203655887218126122, guid: eb253f3a2486f3340b3e41d920d30afa, type: 3}
