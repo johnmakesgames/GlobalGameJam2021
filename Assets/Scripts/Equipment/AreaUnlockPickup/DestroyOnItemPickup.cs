@@ -7,7 +7,7 @@ public class DestroyOnItemPickup : MonoBehaviour
     public int pickupIndex;
     void Start()
     {
-        AreaUnlockTracker.PickupCounterIncreased += OnItemPickedUp;
+        AreaUnlockTracker.MapPickupCounterIncreased += OnItemPickedUp;
     }
 
     void OnItemPickedUp(int counter)
