@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 9038002408307852209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 4050325409389828610}
   m_Father: {fileID: 0}
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recognisedVibes: []
+  vibeDebugTextEnabled: 0
+  vibeDebugVerticalOffset: 0
 --- !u!195 &8546910357035788756
 NavMeshAgent:
   m_ObjectHideFlags: 0
