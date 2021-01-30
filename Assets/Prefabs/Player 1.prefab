@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 2075886338222408583}
   - component: {fileID: 2075886338222408602}
   - component: {fileID: 2075886338222408581}
+  - component: {fileID: 722492708364768182}
+  - component: {fileID: 1668965026}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -52,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4504948727062493853}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -191,7 +193,7 @@ MonoBehaviour:
   happyBarkNoise: {fileID: 8300000, guid: 053e63d82f94ce3439e6a484e1628b85, type: 3}
   reputation: 0
   barkEffectRadius: 5
-  barkEffectVibe: {fileID: 0}
+  barkEffectVibe: {fileID: 11400000, guid: ebeea2a29f7d949458d4d18a673d0eaa, type: 2}
 --- !u!143 &2075886338222408600
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5108,7 +5110,7 @@ MonoBehaviour:
   happyBarkNoise: {fileID: 8300000, guid: 053e63d82f94ce3439e6a484e1628b85, type: 3}
   reputation: 0
   barkEffectRadius: 5
-  barkEffectVibe: {fileID: 0}
+  barkEffectVibe: {fileID: 11400000, guid: ebeea2a29f7d949458d4d18a673d0eaa, type: 2}
 --- !u!114 &2075886338222408581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5124,6 +5126,33 @@ MonoBehaviour:
   playerAnimator: {fileID: 2075886338148196792}
   playerMovement: {fileID: 4504948727062493840}
   CurrentAnimationState: 0
+--- !u!114 &722492708364768182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504948727062493853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0db810cdbc6414481b3e220450d34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1668965026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504948727062493853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ea0e5ffc2a79042bbdd7f83a2b4508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widgetPrefabs:
+  - {fileID: 3629598324778195498, guid: 761831961ad1c34408087b058aa9756f, type: 3}
+  - {fileID: 8836618743608592063, guid: 52ae228eb48125d4e99d8c740d3dcdfb, type: 3}
 --- !u!1001 &2075886338269324426
 PrefabInstance:
   m_ObjectHideFlags: 0
