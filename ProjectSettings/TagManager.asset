@@ -3,14 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
+  tags: 
   - DriveToLocation
   - Boat
   - Area2Blockade
   - Area1Blockade
   - Area3Blockade
   - SailToLocation
-  - Pedestrian Path Node
+  - Diggable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - AI Creature
+  - Dig
   - 
   - 
   - 
