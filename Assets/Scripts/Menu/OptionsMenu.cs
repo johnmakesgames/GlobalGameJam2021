@@ -59,16 +59,13 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log(volume);
         //TODO:: SET UP VOLUME FOR GAME AUDIO / BARKS
         audioMixer.SetFloat("Volume", volume);
-//        audioSource.volume = volume;
-//        AudioSource.PlayClipAtPoint(audioClip, transform.position, volume);
-//        audioSource.PlayOneShot(audioClip, volume);
-        
     }
 
     public void SetQuality(int quality)
     {
         Debug.Log(QualitySettings.GetQualityLevel());
         QualitySettings.SetQualityLevel(quality);
+        QualitySettings.masterTextureLimit = quality;
     }
 
     public void SetFullscreen(bool isFullscreen)
