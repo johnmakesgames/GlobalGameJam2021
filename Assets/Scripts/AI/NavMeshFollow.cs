@@ -10,8 +10,10 @@ public class NavMeshFollow : MonoBehaviour
     public Vector3 targetLocation;
     private NavMeshAgent navMeshAgent;
     private AgentController agentController;
-    float timesincerefresh;
     bool onLink = false;
+
+    public Vector3 scriptedAgentLocation1;
+    public Vector3 scriptedAgentLocation2;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,40 @@ public class NavMeshFollow : MonoBehaviour
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         agentController = this.GetComponent<AgentController>();
 
-        GameObject[] locations;
-        switch (agentController.AiType)
+        SetupNavAgent(agentController.AiType);
+    }
+
+    private void Update()
+    {
+        if (agentController.AiType == AITypes.CAR)
+            Debug.DrawLine(this.GetComponent<Transform>().position, targetLocation, Color.green);
+
+        if (Vector3.Distance(targetLocation, this.GetComponent<Transform>().position) < 2)
+        {
+            switch (agentController.AiType)
+            {
+                case AITypes.PERSON:
+                    break;
+                case AITypes.CAR:
+                    targetLocation = GetLocationToGoToFromTag("DriveToLocation");
+                    break;
+                case AITypes.BOAT:
+                    targetLocation = GetLocationToGoToFromTag("SailToLocation");
+                    break;
+                case AITypes.SCRIPTED_AGENT:
+                    targetLocation = GetFurthestOfScritpedLocations();
+                    break;
+                default:
+                    break;
+            }
+
+            navMeshAgent.SetDestination(targetLocation);
+        }
+    }
+
+    void SetupNavAgent(AITypes aiType)
+    {
+        switch (aiType)
         {
             case AITypes.PERSON:
                 break;
@@ -31,58 +65,49 @@ public class NavMeshFollow : MonoBehaviour
                 navMeshAgent.acceleration = 10;
                 navMeshAgent.autoBraking = true;
                 navMeshAgent.avoidancePriority = 1;
-                locations = GameObject.FindGameObjectsWithTag("DriveToLocation");
-                targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
-                timesincerefresh = 0;
+                targetLocation = GetLocationToGoToFromTag("DriveToLocation");
                 break;
             case AITypes.BOAT:
                 navMeshAgent.speed = 30;
                 navMeshAgent.angularSpeed = 80;
                 navMeshAgent.acceleration = 8;
                 navMeshAgent.autoBraking = true;
-                locations = GameObject.FindGameObjectsWithTag("Boat");
-                targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
-                timesincerefresh = 0;
+                targetLocation = GetLocationToGoToFromTag("SailToLocation");
                 break;
-            default:
+            case AITypes.SCRIPTED_AGENT:
+                navMeshAgent.speed = 10;
+                navMeshAgent.angularSpeed = 600;
+                navMeshAgent.autoTraverseOffMeshLink = true;
+                navMeshAgent.acceleration = 10;
+                navMeshAgent.autoBraking = true;
+                navMeshAgent.avoidancePriority = 1;
+                targetLocation = GetFurthestOfScritpedLocations();
                 break;
         }
 
         navMeshAgent.SetDestination(targetLocation);
     }
 
-    private void Update()
+    Vector3 GetLocationToGoToFromTag(string tag)
     {
-        if (agentController.AiType == AITypes.CAR)
-            Debug.DrawLine(this.GetComponent<Transform>().position, targetLocation, Color.green);
+        var locations = GameObject.FindGameObjectsWithTag(tag);
+        return locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
+    }
 
-        timesincerefresh += Time.deltaTime;
+    Vector3 GetFurthestOfScritpedLocations()
+    {
+        float distanceToOne = Vector3.Distance(this.transform.position, scriptedAgentLocation1);
+        float distanceToTwo = Vector3.Distance(this.transform.position, scriptedAgentLocation2);
 
-        if (Vector3.Distance(targetLocation, this.GetComponent<Transform>().position) < 2)
+        if (distanceToOne > distanceToTwo)
         {
-            Debug.Log("Going to new location");
-
-            GameObject[] locations;
-            switch (agentController.AiType)
-            {
-                case AITypes.PERSON:
-                    break;
-                case AITypes.CAR:
-                    locations = GameObject.FindGameObjectsWithTag("DriveToLocation");
-                    targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
-                    timesincerefresh = 0;
-                    break;
-                case AITypes.BOAT:
-                    locations = GameObject.FindGameObjectsWithTag("SailToLocation");
-                    targetLocation = locations[Random.Range(0, locations.Length)].GetComponent<Transform>().position;
-                    timesincerefresh = 0;
-                    break;
-                default:
-                    break;
-            }
-
-            navMeshAgent.SetDestination(targetLocation);
+            return scriptedAgentLocation1;
         }
+        else
+        {
+            return scriptedAgentLocation2;
+        }
+
     }
 
     void FixedUpdate()

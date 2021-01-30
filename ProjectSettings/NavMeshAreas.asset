@@ -15,7 +15,7 @@ NavMeshProjectSettings:
     cost: 1
   - name: Water
     cost: 1
-  - name: 
+  - name: Crossing
     cost: 1
   - name: 
     cost: 1
