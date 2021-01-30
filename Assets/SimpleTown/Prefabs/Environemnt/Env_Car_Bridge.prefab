@@ -11,6 +11,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: 1527447341745441286}
+  - component: {fileID: 2154897853767541628}
+  - component: {fileID: 198129289529838392}
+  - component: {fileID: 4543088217151494550}
+  - component: {fileID: 8383490145200640015}
   m_Layer: 0
   m_Name: Env_Car_Bridge
   m_TagString: Untagged
@@ -81,3 +86,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1527447341745441286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.99999, y: 2.8180783, z: 20.69223}
+  m_Center: {x: -9.999995, y: -1.6146296, z: 0.000030517578}
+--- !u!65 &2154897853767541628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.99999, y: 2.9849277, z: 3.2073078}
+  m_Center: {x: -9.999995, y: -1.5312049, z: -8.742431}
+--- !u!65 &198129289529838392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.99999, y: 3.0304532, z: 3.2001114}
+  m_Center: {x: -9.999995, y: -1.5084422, z: 8.74609}
+--- !u!65 &4543088217151494550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.99999, y: 7.301578, z: 0.73577976}
+  m_Center: {x: -9.999995, y: 0.62712026, z: -9.643938}
+--- !u!65 &8383490145200640015
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.99999, y: 7.301578, z: 0.727128}
+  m_Center: {x: -9.999995, y: 0.62712026, z: 9.633068}
