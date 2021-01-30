@@ -24,7 +24,6 @@ public class FadeVisibilityOnDistance : MonoBehaviour
         if (trackDistance)
         {
             float distance = Vector3.Distance(player.transform.position, this.transform.position);
-            Debug.Log($"{this.gameObject.name} : {distance}");
             if (distance < 2.5)
             {
                 foreach (var r in childRenderers)
