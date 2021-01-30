@@ -25,15 +25,13 @@ public class AIState : ScriptableObject
 
     [Header("Animation")]
     [SerializeField]
-    private AnimationClip animation = null;
+    private AnimationClip[] animations = null;
 
     private AIAction[] entryActionInstances = null;
     private AIAction[] exitActionInstances = null;
     private AIAction[] actionInstances = null;
 
     private AIDecision[] transitionDecisionInstances = null;
-
-    public AnimationClip Animation { get { return animation; } }
 
     public void Initialize(CreatureAIController controller)
     {
@@ -76,6 +74,11 @@ public class AIState : ScriptableObject
                 transitionDecisionInstances[i].Initialize(controller);
             }
         }
+    }
+
+    public AnimationClip GetRandomAnimation()
+    {
+        return (animations != null) ? animations[Random.Range(0, animations.Length)] : null;
     }
 
     /// <summary>

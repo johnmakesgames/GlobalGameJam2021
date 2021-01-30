@@ -1270,7 +1270,7 @@ TextureImporter:
     second: emoji-sheet-64_421
   - first:
       213: 3349194002139689097
-    second: emoji-sheet-64_422
+    second: emoji-awe
   - first:
       213: 7604878105510014447
     second: emoji-sheet-64_423
@@ -14482,7 +14482,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emoji-sheet-64_422
+      name: emoji-awe
       rect:
         serializedVersion: 2
         x: 2240

@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51fdf705956271f4689ee29c735e3fe6, type: 3}
-  m_Name: Human Hide In Fear
+  m_Name: Human Awe Low
   m_EditorClassIdentifier: 
   entryActions: []
   exitActions: []
   actions:
-  - {fileID: 11400000, guid: d829c61d7798f6b4dbf6bc1e6176ec8b, type: 2}
-  - {fileID: 11400000, guid: d6106fb729853a64aab181b6cf7a635a, type: 2}
+  - {fileID: 11400000, guid: 6973f18f6243f464aa1dff981f2fb8f5, type: 2}
+  - {fileID: 11400000, guid: 25d7e9e9fa7a3674eba554dd91bca350, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: cce9b303f2079d341aa48dca6825e215, type: 2}
+  - decision: {fileID: 11400000, guid: 6cc0fa8949fe94f4380f7680466b950f, type: 2}
     passState: {fileID: 11400000, guid: 46ad747ffae64b143b0c6921d723fe7c, type: 2}
     failState: {fileID: 0}
+  - decision: {fileID: 11400000, guid: 2e3ae1b48f3378749aa2a43f2561d615, type: 2}
+    passState: {fileID: 11400000, guid: 9cf699102acb9d240b98487328d6d42b, type: 2}
+    failState: {fileID: 0}
   animations:
-  - {fileID: -203655887218126122, guid: 9144bdcb8fca8ec4fa32040804a1f9b1, type: 3}
+  - {fileID: -203655887218126122, guid: 19ea018408d0aee4d86a52571d061b91, type: 3}

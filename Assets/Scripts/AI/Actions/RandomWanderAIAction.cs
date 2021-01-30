@@ -46,19 +46,36 @@ public class RandomWanderAIAction : AIAction
 
     private void SetNewPath(CreatureAIController controller)
     {
-        
-        GameObject node = worldContext.GetRandomPedestrianPathNode();
-        while ((node == previousPedestrianNode) && (node != null) && (worldContext.GetPedestrianPathNodeCount() > 1))
+        if (worldContext.GetPedestrianPathNodeCount() == 0)
         {
-            node = worldContext.GetRandomPedestrianPathNode();
-        }
-        
-        if(node != null)
-        {
-            navMeshAgent.SetDestination(node.transform.position);
-            previousPedestrianNode = node;
+            // Random horizontal direction.
+            Vector3 randomDirection = Random.insideUnitSphere;
+            randomDirection.y = 0.0f;
 
-            Debug.DrawLine(controller.transform.position, node.transform.position, Color.red, 1.0f);
+            // Destination.
+            Vector3 target = controller.transform.position + (randomDirection * 30.0f);
+
+            NavMeshQueryFilter filter = new NavMeshQueryFilter();
+            filter.areaMask = (1 << NavMesh.GetAreaFromName("Walkable"));
+            NavMesh.SamplePosition(target, out NavMeshHit hit, 30.0f, filter);
+            navMeshAgent.SetDestination(hit.position);
+        }
+
+        else
+        {
+            GameObject node = worldContext.GetRandomPedestrianPathNode();
+            while ((node == previousPedestrianNode) && (node != null) && (worldContext.GetPedestrianPathNodeCount() > 1))
+            {
+                node = worldContext.GetRandomPedestrianPathNode();
+            }
+
+            if (node != null)
+            {
+                navMeshAgent.SetDestination(node.transform.position);
+                previousPedestrianNode = node;
+
+                Debug.DrawLine(controller.transform.position, node.transform.position, Color.red, 1.0f);
+            }
         }
     }
 }
