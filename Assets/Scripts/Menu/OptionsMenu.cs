@@ -46,6 +46,7 @@ public class OptionsMenu : MonoBehaviour
         resDropdown.RefreshShownValue();
 
         qualityDropdown.value = QualitySettings.GetQualityLevel();
+        qualityDropdown.RefreshShownValue();
     }
 
     public void SetResolution(int index)
@@ -64,8 +65,34 @@ public class OptionsMenu : MonoBehaviour
     public void SetQuality(int quality)
     {
         Debug.Log(QualitySettings.GetQualityLevel());
-        QualitySettings.SetQualityLevel(quality);
-        QualitySettings.masterTextureLimit = quality;
+//        QualitySettings.SetQualityLevel(quality);
+//        QualitySettings.masterTextureLimit = quality;
+
+        if(qualityDropdown.value == 0)
+        {
+            QualitySettings.SetQualityLevel(0);
+        }
+        if (qualityDropdown.value == 1)
+        {
+            QualitySettings.SetQualityLevel(1);
+        }
+        if (qualityDropdown.value == 2)
+        {
+            QualitySettings.SetQualityLevel(2);
+        }
+        if (qualityDropdown.value == 3)
+        {
+            QualitySettings.SetQualityLevel(3);
+        }
+        if (qualityDropdown.value == 4)
+        {
+            QualitySettings.SetQualityLevel(4);
+        }
+        if (qualityDropdown.value == 5)
+        {
+            QualitySettings.SetQualityLevel(5);
+        }
+
     }
 
     public void SetFullscreen(bool isFullscreen)

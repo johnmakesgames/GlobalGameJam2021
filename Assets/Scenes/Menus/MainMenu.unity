@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -294.2, y: 180.2}
-  m_SizeDelta: {x: -689.9916, y: -639.5472}
+  m_AnchoredPosition: {x: -303.46756, y: 180.2}
+  m_SizeDelta: {x: -671.4565, y: -639.5472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23328767
 MonoBehaviour:
@@ -829,7 +829,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very High
+  m_Text: Very Low
 --- !u!222 &265291653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5457,20 +5457,20 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 88165976}
   m_ItemImage: {fileID: 0}
-  m_Value: 1
+  m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Ultra
-      m_Image: {fileID: 0}
-    - m_Text: Very High
-      m_Image: {fileID: 0}
-    - m_Text: High
-      m_Image: {fileID: 0}
-    - m_Text: Medium
+    - m_Text: Very Low
       m_Image: {fileID: 0}
     - m_Text: Low
       m_Image: {fileID: 0}
-    - m_Text: Very Low
+    - m_Text: Medium
+      m_Image: {fileID: 0}
+    - m_Text: High
+      m_Image: {fileID: 0}
+    - m_Text: Very High
+      m_Image: {fileID: 0}
+    - m_Text: Ultra
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
