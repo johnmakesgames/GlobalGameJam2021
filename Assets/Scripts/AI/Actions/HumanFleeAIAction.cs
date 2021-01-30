@@ -11,6 +11,10 @@ public class HumanFleeAIAction : AIAction
     [SerializeField]
     private float fleeSpeed = 8.0f;
 
+    [Tooltip("The reputation the player loses for scaring the AI into fleeing.")]
+    [SerializeField]
+    private float playerReputationChange = -0.1f;
+
     private AIWorldContext worldContext = null;
     private NavMeshAgent navAgent = null;
 
@@ -46,6 +50,10 @@ public class HumanFleeAIAction : AIAction
         navAgent.enabled = true;
         navAgent.SetDestination(fleeDestination);
         navAgent.speed = fleeSpeed;
+
+        // Give the dog bad reputation for making us scared :(
+        PlayerReputation reputation = player.GetComponent<PlayerReputation>();
+        reputation.AddReputation(playerReputationChange);
     }
 
     public override void Act(CreatureAIController controller)

@@ -16,7 +16,7 @@ public class AIWorldContext : MonoBehaviour
     /// </summary>
     private GameObject playerGameObject = null;
 
-    private void Start()
+    private void Awake()
     {
         // Find the pedestrian pathing nodes.
         pedestrianPathingNodes = GameObject.FindGameObjectsWithTag("Pedestrian Path Node");
