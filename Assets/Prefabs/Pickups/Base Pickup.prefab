@@ -93,3 +93,5 @@ MonoBehaviour:
   verticalBobOffset: 0.5
   verticalBobScalar: 0.15
   verticalBobSpeed: 2
+  spinSpeed: 25
+  rotationAxis: {x: 0, y: 1, z: 0}

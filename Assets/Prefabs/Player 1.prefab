@@ -77,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9483d97c611dd06419be043811a9decf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpeedModifier: 0.1
+  PlayerSpeedModifier: 8
   jumpHeight: 0.1
   CurrentState: 0
   DirectionToDigZone: {x: 0, y: 0, z: 0}
+  playerCamera: {fileID: 0}
   AbleToDig: 0
   CurrentDigZone: {fileID: 0}
 --- !u!82 &2075886338736306646

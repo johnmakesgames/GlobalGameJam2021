@@ -1786,7 +1786,7 @@ TextureImporter:
     second: emoji-sheet-64_593
   - first:
       213: -8920300529060103923
-    second: emoji-sheet-64_594
+    second: emoji-happy
   - first:
       213: 8072030281213293797
     second: emoji-sheet-64_595
@@ -4522,7 +4522,7 @@ TextureImporter:
     second: emoji-sheet-64_1505
   - first:
       213: -3754633859991126065
-    second: emoji-sheet-64_1506
+    second: emoji-anger
   - first:
       213: -1480036867510229234
     second: emoji-sheet-64_1507
@@ -18094,7 +18094,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emoji-sheet-64_594
+      name: emoji-happy
       rect:
         serializedVersion: 2
         x: 2240
@@ -37246,7 +37246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emoji-sheet-64_1506
+      name: emoji-anger
       rect:
         serializedVersion: 2
         x: 64
