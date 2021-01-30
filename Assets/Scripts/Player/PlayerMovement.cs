@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Debug.Log(DigZones.Length);
+        //Debug.Log(DigZones.Length);
         // Not Context based Actions : Attack & Sniff (B for bark in audio)
 
         if (Input.GetKey(KeyCode.Alpha1))

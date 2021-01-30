@@ -13,6 +13,9 @@ public class VibeTracker : MonoBehaviour
 
 #if UNITY_EDITOR
     [SerializeField]
+    private bool vibeDebugTextEnabled = false;
+
+    [SerializeField]
     private float vibeDebugVerticalOffset = 0.0f;
 #endif
 
@@ -77,35 +80,48 @@ public class VibeTracker : MonoBehaviour
     {
         if(RecognisesVibe(vibe))
         {
-            vibeValues[vibe] += scoreChange;
+            // Reset the conflicting vibes.
+            foreach(Vibe resetVibe in vibe.ApplicationResetVibes)
+            {
+                if(RecognisesVibe(resetVibe))
+                {
+                    vibeValues[resetVibe] = resetVibe.DefaultValue;
+                }
+            }
+
+            // Apply the vibe change.
+            vibeValues[vibe] = Mathf.Clamp01(vibeValues[vibe] + scoreChange);
         }
     }
 
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        // Style.
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.yellow;
-        style.fontSize = 18;
-        style.fontStyle = FontStyle.Bold;
-
-        Vector2 origin = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + vibeDebugVerticalOffset, transform.position.z));
-
-        int lineHeight = 24;
-        int lineCount = 0;
-        foreach (KeyValuePair<Vibe, float> vibeScorePair in vibeValues)
+        if (vibeDebugTextEnabled)
         {
-            string text = $"{vibeScorePair.Key.name}: {vibeScorePair.Value}";
-            Vector2 textSize = style.CalcSize(new GUIContent(text));
+            // Style.
+            GUIStyle style = new GUIStyle();
+            style.normal.textColor = Color.yellow;
+            style.fontSize = 18;
+            style.fontStyle = FontStyle.Bold;
 
-            Vector2 textPosition = origin;
-            textPosition.x -= (textSize.x / 2.0f);
-            textPosition.y += (lineCount * lineHeight);
+            Vector2 origin = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + vibeDebugVerticalOffset, transform.position.z));
 
-            GUI.Label(new Rect(textPosition.x, Screen.height - textPosition.y, textSize.x, textSize.y), text, style);
-            ++lineCount;
-        }     
+            int lineHeight = 24;
+            int lineCount = 0;
+            foreach (KeyValuePair<Vibe, float> vibeScorePair in vibeValues)
+            {
+                string text = $"{vibeScorePair.Key.name}: {vibeScorePair.Value}";
+                Vector2 textSize = style.CalcSize(new GUIContent(text));
+
+                Vector2 textPosition = origin;
+                textPosition.x -= (textSize.x / 2.0f);
+                textPosition.y += (lineCount * lineHeight);
+
+                GUI.Label(new Rect(textPosition.x, Screen.height - textPosition.y, textSize.x, textSize.y), text, style);
+                ++lineCount;
+            }
+        }
     }
 #endif
 }

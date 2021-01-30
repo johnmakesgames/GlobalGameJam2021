@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51fdf705956271f4689ee29c735e3fe6, type: 3}
-  m_Name: Human Random Wander
+  m_Name: Human Awe Okay
   m_EditorClassIdentifier: 
   entryActions: []
   exitActions: []
   actions:
-  - {fileID: 11400000, guid: 46c0bf87022e81a48b3ac1dc05b82c12, type: 2}
+  - {fileID: 11400000, guid: 6973f18f6243f464aa1dff981f2fb8f5, type: 2}
+  - {fileID: 11400000, guid: 25d7e9e9fa7a3674eba554dd91bca350, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: 223ac22e58bffe54bb4282692e967fde, type: 2}
-    passState: {fileID: 11400000, guid: 75741a3bb723cef479e4749f1323ef04, type: 2}
-    failState: {fileID: 0}
-  - decision: {fileID: 11400000, guid: 3acf50cf36724b3458a035907c9b0615, type: 2}
+  - decision: {fileID: 11400000, guid: 58d7e21c364041243876789e7529ab8c, type: 2}
     passState: {fileID: 11400000, guid: f3a480d4d55ab544eb088ed15e0c97fc, type: 2}
     failState: {fileID: 0}
-  animation: {fileID: -203655887218126122, guid: 06c91a50973236042b73e78c95f90777, type: 3}
+  - decision: {fileID: 11400000, guid: 03f873af9d83b0d47838ca9438c6595d, type: 2}
+    passState: {fileID: 11400000, guid: d67ed6cc0f44cb447b2b97eb548f4e61, type: 2}
+    failState: {fileID: 0}
+  animation: {fileID: -203655887218126122, guid: 04c9f4212ae651a42a9fe1c85f6170c4, type: 3}

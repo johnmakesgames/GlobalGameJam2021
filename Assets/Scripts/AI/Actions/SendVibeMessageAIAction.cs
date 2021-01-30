@@ -14,17 +14,26 @@ public class SendVibeMessageAIAction : AIAction
     [SerializeField]
     private float value = 0.0f;
 
+    [Tooltip("The range selected from to add random variation to the message value.")]
+    [SerializeField]
+    private Vector2 randomVariationRange = Vector2.zero;
+
     private VibeMessageHandler vibeMessageHandler = null;
+
+    private float variationValue = 0.0f;
 
     public override void Initialize(CreatureAIController controller)
     {
         base.Initialize(controller);
 
         vibeMessageHandler = controller.GetComponent<VibeMessageHandler>();
+
+        variationValue = Mathf.Lerp(randomVariationRange.x, randomVariationRange.y, Random.value);
     }
 
     public override void Act(CreatureAIController controller)
     {
-        vibeMessageHandler.VibeMessage(vibe, value * Time.deltaTime, false);
+        float messageMagnitude = value + variationValue;
+        vibeMessageHandler.VibeMessage(vibe, messageMagnitude * Time.deltaTime, false);
     }
 }
