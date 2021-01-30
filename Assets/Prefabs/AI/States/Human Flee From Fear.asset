@@ -22,4 +22,3 @@ MonoBehaviour:
     failState: {fileID: 0}
   animations:
   - {fileID: -203655887218126122, guid: dbb6970647ee8be499bdd5515895e11c, type: 3}
-  - {fileID: -203655887218126122, guid: ab3541b38a89c5e4e99d2dbd3a899d3f, type: 3}

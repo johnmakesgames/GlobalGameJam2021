@@ -176,6 +176,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4127516359390498250}
     - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_WalkableMask
       value: 33
       objectReference: {fileID: 0}
@@ -186,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 8981161441278244672, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: entryState
       value: 
-      objectReference: {fileID: 11400000, guid: 35d55c4bf2042df41ad7a1ce48b85ec9, type: 2}
+      objectReference: {fileID: 11400000, guid: 46ad747ffae64b143b0c6921d723fe7c, type: 2}
     - target: {fileID: 8981161441278244672, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: displayDebugStateText
       value: 1
