@@ -9,14 +9,16 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerAnimationState CurrentAnimationState;
 
+
     public enum PlayerAnimationState { Idle, Walking, Running, Shaking, Digging, Jumping, Falling, Attacking, Sniffing, WaggingTail, Sleeping, Petting, Dead }
-   
+    private ParticleSystem sniffParticles;
     private PlayerAnimationState PreviousState;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sniffParticles = GetComponent<ParticleSystem>();
+        sniffParticles.Stop();
     }
 
     // Update is called once per frame
@@ -75,6 +77,7 @@ public class PlayerAnimation : MonoBehaviour
             if (CurrentAnimationState == PlayerAnimationState.Sniffing)
             {
                 playerAnimator.SetTrigger("Sniffing");
+                Sniff();
             }
 
             if (CurrentAnimationState == PlayerAnimationState.WaggingTail)
@@ -108,8 +111,22 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    void Sniff() //sniff Particles
+    {
+        //Sniff
+        if (sniffParticles.isStopped)
+            sniffParticles.Play();
+
+        //playerMovement.DirectionToDigZone;
+        
+
+    }
+
     void ResetAnimationTrigger()
     {
+        if (sniffParticles.isPlaying)
+            sniffParticles.Stop();
+
         switch (PreviousState)
         {
             case PlayerAnimationState.Walking:

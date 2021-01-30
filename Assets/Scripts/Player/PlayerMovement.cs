@@ -8,17 +8,24 @@ public class PlayerMovement : MonoBehaviour
     public float PlayerSpeedModifier = 0.01f;
     public float jumpHeight = 0.5f;
     public PlayerAnimation.PlayerAnimationState CurrentState;
+    public Vector3 DirectionToDigZone;
 
     private CharacterController playerController;
     private bool playerGrounded;
     private Vector3 playerVelocity;
 
+    public bool AbleToDig = false;
+    private bool Alive = true;
+    private GameObject[] DigZones;
+    public GameObject CurrentDigZone;
+    private GameObject NearestDigZone;
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponent<CharacterController>();
         CurrentState = PlayerAnimation.PlayerAnimationState.Idle;
+        DigZones = GameObject.FindGameObjectsWithTag("Diggable");
     }
 
     private void FixedUpdate()
@@ -59,43 +66,65 @@ public class PlayerMovement : MonoBehaviour
         playerController.Move(playerVelocity);
 
 
-        // For Testing All Actions Animations On keys 1 - 4
+        if(AbleToDig)
+        {
+            //Pop up with "Press 'E' to Dig"
+        }
+
+
+        // Context Based Actions : WagTail, Pet, Shake, Dig
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            // Determine which Action to perform
+            //Wag, Pet, Shake, Dig
+
+            if (Input.GetKey(KeyCode.Alpha3))
+            {
+                //Wag Tail
+                CurrentState = PlayerAnimation.PlayerAnimationState.WaggingTail;
+            }
+
+            if (Input.GetKey(KeyCode.Alpha4))
+            {
+                //Be Pet
+                CurrentState = PlayerAnimation.PlayerAnimationState.Petting;
+            }
+
+            if (Input.GetKey(KeyCode.Alpha5))
+            {
+                CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
+            }
+
+            if (AbleToDig)
+            {
+                CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
+
+                Destroy(CurrentDigZone);
+                
+                DigZones = GameObject.FindGameObjectsWithTag("Diggable"); //Not Currently Updating on Dig Zone removal
+
+                AbleToDig = false;
+            }
+        }
+
+        Debug.Log(DigZones.Length);
+        // Not Context based Actions : Attack & Sniff (B for bark in audio)
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            //Attack
             CurrentState = PlayerAnimation.PlayerAnimationState.Attacking;
         }
 
         if (Input.GetKey(KeyCode.Alpha2))
-        {
-            //Sniff
+        {       
             CurrentState = PlayerAnimation.PlayerAnimationState.Sniffing;
+
+            FindNearestDigZone();
         }
 
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            //Wag Tail
-            CurrentState = PlayerAnimation.PlayerAnimationState.WaggingTail;
-        }
-
-        if (Input.GetKey(KeyCode.Alpha4))
-        {
-            //Be Pet
-            CurrentState = PlayerAnimation.PlayerAnimationState.Petting;
-        }
-
-        if (Input.GetKey(KeyCode.Alpha5))
-        {
-            CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
-        }
-
-        if (Input.GetKey(KeyCode.Alpha6))
-        {
-            CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
-        }
-
-        if (Input.GetKey(KeyCode.Alpha7))
+        
+        if (!Alive) // if health == 0
         {
             CurrentState = PlayerAnimation.PlayerAnimationState.Dead;
         }
@@ -105,4 +134,26 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(playerVelocity.y); //Player Velocity.Y is the only thing affected so can only be used to calculate jump // move.y unaffected
 
     }
+
+
+   void FindNearestDigZone()
+   {
+        NearestDigZone = DigZones[0];
+        float nearestDistance = (NearestDigZone.transform.position - transform.position).magnitude;
+        float newDistance;
+        foreach(GameObject g in DigZones)
+        {
+            newDistance = (g.transform.position - transform.position).magnitude;
+
+            if(newDistance < nearestDistance)
+            {
+                nearestDistance = newDistance;
+                NearestDigZone = g;
+            }
+        }
+
+        DirectionToDigZone = (NearestDigZone.transform.position - transform.position);
+        DirectionToDigZone.Normalize();
+   }
+
 }
