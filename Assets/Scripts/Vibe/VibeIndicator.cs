@@ -12,6 +12,7 @@ public class VibeIndicator : MonoBehaviour
     private float lifetime = 1.0f;
 
     private SpriteRenderer spriteRenderer = null;
+    private Camera mainCamera = null;
 
     private void Awake()
     {
@@ -20,9 +21,16 @@ public class VibeIndicator : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
+    private void Start()
+    {
+        mainCamera = Camera.main;    
+    }
+
     private void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y + (riseSpeed * Time.deltaTime), transform.position.z);
+
+        transform.LookAt(mainCamera.transform.position);
     }
 
     public void SetIcon(Sprite icon)

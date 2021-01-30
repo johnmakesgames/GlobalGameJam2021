@@ -58,7 +58,7 @@ public class Pickup : MonoBehaviour
             equipmentController.AddItemToInventory(itemType);
         }
 
-        OnItemPickedUp(itemType);
+        OnItemPickedUp?.Invoke(itemType);
         Destroy(gameObject);
     }
 }

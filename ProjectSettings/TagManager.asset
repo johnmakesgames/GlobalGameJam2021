@@ -10,6 +10,7 @@ TagManager:
   - Area1Blockade
   - Area3Blockade
   - SailToLocation
+  - Pedestrian Path Node
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - AI Creature
   - 
   - 
   - 

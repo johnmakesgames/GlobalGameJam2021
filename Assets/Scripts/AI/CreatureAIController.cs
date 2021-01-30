@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class CreatureAIController : MonoBehaviour
 {
+    /// <summary>
+    /// Invoked each time the controller changes <see cref="AIState"/>.
+    /// </summary>
+    public System.Action<AIState> EventChangeState = null;
+
     [Tooltip("The starting state for the creature.")]
     [SerializeField]
     private AIState entryState = null;
@@ -29,7 +34,7 @@ public class CreatureAIController : MonoBehaviour
     /// <see cref="AIState"/>.
     /// </summary>
     /// <param name="state">The state to enter.</param>
-    private void EnterState(AIState state)
+    public void EnterState(AIState state)
     {
         // Exit existing state.
         if(currentStateInstance != null)
@@ -46,5 +51,8 @@ public class CreatureAIController : MonoBehaviour
             currentStateInstance.Initialize(this);
             currentStateInstance.EnterState(this);
         }
+
+        // Broadcast state change.
+        EventChangeState?.Invoke(state);
     }
 }
