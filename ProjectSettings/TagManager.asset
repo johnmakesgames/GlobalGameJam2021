@@ -3,13 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
+  tags: 
   - DriveToLocation
   - Boat
   - Area2Blockade
   - Area1Blockade
   - Area3Blockade
   - SailToLocation
+  - Diggable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Dig
   - 
   - 
   - 
