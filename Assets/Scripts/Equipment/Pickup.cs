@@ -27,6 +27,14 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private float verticalBobSpeed = 1.0f;
 
+    [Tooltip("The spin speed of the item")]
+    [SerializeField]
+    private float spinSpeed = 0;
+
+    [Tooltip("The axis to rotate the item on")]
+    [SerializeField]
+    private Vector3 rotationAxis = new Vector3(0, 1, 0);
+
     public delegate void ItemPickedUp(ItemType itemType);
     public static event ItemPickedUp OnItemPickedUp;
 
@@ -36,7 +44,7 @@ public class Pickup : MonoBehaviour
         {
             Vector3 currentPosition = pickupVisual.transform.position;
             currentPosition.y = verticalBobOffset + (Mathf.Sin(Time.time * verticalBobSpeed) * verticalBobScalar);
-
+            pickupVisual.transform.Rotate(rotationAxis, spinSpeed * Time.deltaTime);
             pickupVisual.transform.position = currentPosition;
         }
     }
@@ -51,7 +59,6 @@ public class Pickup : MonoBehaviour
         }
 
         OnItemPickedUp(itemType);
-
         Destroy(gameObject);
     }
 }
