@@ -17,6 +17,14 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = player.position + offset;
+
+        Vector3 lookAt = new Vector3(player.position.x, player.position.y + 2, player.position.z);
+        transform.LookAt(lookAt); // Just above player
+    }
+
+    private void FixedUpdate()
+    {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.RotateAround(player.position, Vector3.up, 70 * Time.deltaTime);
@@ -26,17 +34,8 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.RotateAround(player.position, Vector3.up, -70 * Time.deltaTime);
+
             offset = transform.position - player.position;
         }
-
-        transform.position = player.position + offset;
-
-        Vector3 lookAt = new Vector3(player.position.x, player.position.y + 2, player.position.z);
-        transform.LookAt(lookAt); //player
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 }

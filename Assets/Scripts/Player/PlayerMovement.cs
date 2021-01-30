@@ -31,12 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         playerGrounded = playerController.isGrounded;
 
         if (playerGrounded)
@@ -47,15 +41,9 @@ public class PlayerMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        // Movement based on camera direction
-        //Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")) * PlayerSpeedModifier;
-        //playerController.Move(move);
-
-        //Debug.Log(playerCamera.transform.rotation);
-
         Vector3 moveDirection = new Vector3(0, 0, 0);
 
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             // move in the direction of camera
             moveDirection = playerCamera.transform.forward;
@@ -80,12 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        moveDirection.y = 0;
+
         moveDirection *= Time.deltaTime * PlayerSpeedModifier;
         playerController.Move(moveDirection);
-
-        Debug.Log(moveDirection);
-
-
 
 
         if (moveDirection != Vector3.zero)
@@ -105,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         playerController.Move(playerVelocity);
 
 
-        if(AbleToDig)
+        if (AbleToDig)
         {
             //Pop up with "Press 'E' to Dig"
         }
@@ -113,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Context Based Actions : WagTail, Pet, Shake, Dig
 
-        if(Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             // Determine which Action to perform
             //Wag, Pet, Shake, Dig
@@ -140,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
                 CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
 
                 Destroy(CurrentDigZone);
-                
+
                 DigZones = GameObject.FindGameObjectsWithTag("Diggable"); //Not Currently Updating on Dig Zone removal
 
                 AbleToDig = false;
@@ -156,13 +142,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Alpha2))
-        {       
+        {
             CurrentState = PlayerAnimation.PlayerAnimationState.Sniffing;
 
             FindNearestDigZone();
         }
 
-        
+
         if (!Alive) // if health == 0
         {
             CurrentState = PlayerAnimation.PlayerAnimationState.Dead;
@@ -171,6 +157,12 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(CurrentState);
         //Debug.Log(playerVelocity.y); //Player Velocity.Y is the only thing affected so can only be used to calculate jump // move.y unaffected
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
 
     }
 
