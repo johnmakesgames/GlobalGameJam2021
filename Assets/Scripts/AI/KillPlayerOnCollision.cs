@@ -41,7 +41,7 @@ public class KillPlayerOnCollision : MonoBehaviour
             {
                 bloodSplat.gameObject.SetActive(true);
                 StartCoroutine(SetBloodBoolFalseAfterDuration(5));
-                other.gameObject.GetComponent<Transform>().position = new Vector3(-43.6f, 0.8f, -72.8f);
+                other.gameObject.GetComponent<Respawner>().KillAndRespawn("Hit by car");
             }
         }
     }
