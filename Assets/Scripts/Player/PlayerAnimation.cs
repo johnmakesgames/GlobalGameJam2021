@@ -17,7 +17,8 @@ public class PlayerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sniffParticles = GetComponent<ParticleSystem>();
+        //sniffParticles = GetComponent<ParticleSystem>();
+        sniffParticles = GetComponentInChildren<ParticleSystem>();
         sniffParticles.Stop();
     }
 
@@ -113,11 +114,25 @@ public class PlayerAnimation : MonoBehaviour
 
     void Sniff() //sniff Particles
     {
-        //Sniff
-        if (sniffParticles.isStopped)
-            sniffParticles.Play();
+        Debug.Log(playerMovement.DirectionToDigZone);
+        //Debug.Log(sniffParticles.shape.rotation);
 
-        //playerMovement.DirectionToDigZone;
+        if (playerMovement.DirectionToDigZone != Vector3.zero)
+        {
+            //float angle = Vector3.Dot(GameObject.Find("SniffParticles").GetComponent<Transform>().forward, playerMovement.DirectionToDigZone);
+            //set direction of sniff particles
+
+            GameObject.Find("SniffParticles").GetComponent<Transform>().rotation = Quaternion.LookRotation(playerMovement.DirectionToDigZone, Vector3.up);
+            //sniffParticles.shape.rotation.Set(playerMovement.DirectionToDigZone.x, playerMovement.DirectionToDigZone.y, playerMovement.DirectionToDigZone.z);
+            
+            //Sniff
+            if (sniffParticles.isStopped)
+                sniffParticles.Play();
+        }
+
+        
+
+        //Debug.Log(playerMovement.DirectionToDigZone);
         
 
     }
