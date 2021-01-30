@@ -11,6 +11,11 @@ public class VibeTracker : MonoBehaviour
     [SerializeField]
     private Vibe[] recognisedVibes = null;
 
+#if UNITY_EDITOR
+    [SerializeField]
+    private float vibeDebugVerticalOffset = 0.0f;
+#endif
+
     /// <summary>
     /// The current value of the vibes.
     /// </summary>
@@ -73,8 +78,34 @@ public class VibeTracker : MonoBehaviour
         if(RecognisesVibe(vibe))
         {
             vibeValues[vibe] += scoreChange;
-
-            // Debug.Log($"Vibe '{vibe.name}' score updated to {vibeValues[vibe]}");
         }
     }
+
+#if UNITY_EDITOR
+    private void OnGUI()
+    {
+        // Style.
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.yellow;
+        style.fontSize = 18;
+        style.fontStyle = FontStyle.Bold;
+
+        Vector2 origin = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + vibeDebugVerticalOffset, transform.position.z));
+
+        int lineHeight = 24;
+        int lineCount = 0;
+        foreach (KeyValuePair<Vibe, float> vibeScorePair in vibeValues)
+        {
+            string text = $"{vibeScorePair.Key.name}: {vibeScorePair.Value}";
+            Vector2 textSize = style.CalcSize(new GUIContent(text));
+
+            Vector2 textPosition = origin;
+            textPosition.x -= (textSize.x / 2.0f);
+            textPosition.y += (lineCount * lineHeight);
+
+            GUI.Label(new Rect(textPosition.x, Screen.height - textPosition.y, textSize.x, textSize.y), text, style);
+            ++lineCount;
+        }     
+    }
+#endif
 }

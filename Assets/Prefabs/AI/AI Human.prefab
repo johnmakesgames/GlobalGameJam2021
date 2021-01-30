@@ -69,8 +69,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95389170962898660, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 6c71607f5442ec140a9649456733c939, type: 3}
+    - target: {fileID: 95389170962898660, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f04b3b52c7948d84db85e894ba7af6f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+--- !u!95 &4127516359390498250 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95389170962898660, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+  m_PrefabInstance: {fileID: 4041138099092984622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4062502038360511673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,13 +92,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: vibeDebugVerticalOffset
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: recognisedVibes.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: recognisedVibes.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ebeea2a29f7d949458d4d18a673d0eaa, type: 2}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: recognisedVibes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 127a1c107bbd9de488db114cda6c7920, type: 2}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: recognisedVibes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6312bb9b6cbe4744384c0e18c7de5db7, type: 2}
     - target: {fileID: 1127139182049667252, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -108,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1292838955158442263, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.25
       objectReference: {fileID: 0}
     - target: {fileID: 1292838955158442263, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -145,6 +170,14 @@ PrefabInstance:
     - target: {fileID: 4050325409389828610, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017256906066154473, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 4127516359390498250}
+    - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: m_WalkableMask
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 8981161441278244672, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: entryState

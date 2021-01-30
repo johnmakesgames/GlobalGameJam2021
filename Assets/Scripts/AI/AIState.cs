@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New AI State", menuName = "GGJ 2021/AI/State")]
 public class AIState : ScriptableObject
 {
+    [Header("Behaviour")]
     [Tooltip("The actions once upon entry to this state.")]
     [SerializeField]
     private AIAction[] entryActions = null;
@@ -19,9 +20,20 @@ public class AIState : ScriptableObject
     [SerializeField]
     private AIAction[] actions = null;
 
+    [SerializeField]
+    private AITransition[] transitions = null;
+
+    [Header("Animation")]
+    [SerializeField]
+    private AnimationClip animation = null;
+
     private AIAction[] entryActionInstances = null;
     private AIAction[] exitActionInstances = null;
     private AIAction[] actionInstances = null;
+
+    private AIDecision[] transitionDecisionInstances = null;
+
+    public AnimationClip Animation { get { return animation; } }
 
     public void Initialize(CreatureAIController controller)
     {
@@ -54,6 +66,16 @@ public class AIState : ScriptableObject
                 actionInstances[i].Initialize(controller);
             }
         }
+
+        if(transitions != null)
+        {
+            transitionDecisionInstances = new AIDecision[transitions.Length];
+            for (int i = 0; i < transitions.Length; ++i) 
+            {
+                transitionDecisionInstances[i] = Instantiate(transitions[i].Decision);
+                transitionDecisionInstances[i].Initialize(controller);
+            }
+        }
     }
 
     /// <summary>
@@ -77,11 +99,28 @@ public class AIState : ScriptableObject
     /// <param name="controller">The owning <see cref="CreatureAIController"/>.</param>
     public void ExitState(CreatureAIController controller)
     {
+        // Perform exit actions once each.
         if (exitActionInstances != null)
         {
             foreach (AIAction action in exitActionInstances)
             {
                 action.Act(controller);
+            }
+        }
+
+        // Notify all action instances we are exiting the state for cleanup.
+        if (exitActionInstances != null)
+        {
+            foreach (AIAction action in exitActionInstances)
+            {
+                action.ExitState(controller);
+            }
+        }
+        if (actionInstances != null)
+        {
+            foreach (AIAction action in actionInstances)
+            {
+                action.ExitState(controller);
             }
         }
     }
@@ -92,11 +131,31 @@ public class AIState : ScriptableObject
     /// <param name="controller">Instigating <see cref="CreatureAIController"/></param>
     public void RunState(CreatureAIController controller)
     {
+        // Execute state actions.
         if(actionInstances != null)
         {
             foreach(AIAction action in actionInstances)
             {
                 action.Act(controller);
+            }
+        }
+
+        // Run transitions.
+        if(transitionDecisionInstances != null)
+        {
+            for(int i = 0; i < transitions.Length; ++i)
+            {
+                AIDecision decision = transitionDecisionInstances[i];
+
+                // Evaluate transition.
+                bool decisionResult = decision.Decide(controller);
+                AIState transitionState = decisionResult ? transitions[i].PassState : transitions[i].FailState;
+
+                // Null transition state represents no change in state, so we only perform an actual transition for valid states.
+                if(transitionState != null)
+                {
+                    controller.EnterState(transitionState);
+                }
             }
         }
     }
