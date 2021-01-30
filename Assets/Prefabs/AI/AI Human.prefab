@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4127516359390498250}
+    - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: m_WalkableMask
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 8981161441278244672, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: entryState
       value: 
