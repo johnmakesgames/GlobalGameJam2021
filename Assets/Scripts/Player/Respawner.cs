@@ -19,6 +19,6 @@ public class Respawner : MonoBehaviour
     public void KillAndRespawn(string death)
     {
         deaths.Add(death);
-        this.GetComponent<Transform>().SetPositionAndRotation(respawnLocation, this.transform.rotation);
+        this.transform.TransformPoint(Vector3.zero);
     }    
 }
