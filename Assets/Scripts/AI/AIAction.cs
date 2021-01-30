@@ -6,7 +6,17 @@ using UnityEngine;
 /// </summary>
 public abstract class AIAction : ScriptableObject
 {
+    public void ExitState(CreatureAIController controller)
+    {
+        OnStateExit(controller);
+    }
+
     public virtual void Initialize(CreatureAIController controller)
+    {
+        // Default implementation has no behavior.
+    }
+
+    protected virtual void OnStateExit(CreatureAIController controller)
     {
         // Default implementation has no behavior.
     }

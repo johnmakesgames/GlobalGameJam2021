@@ -84,10 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8691404036219874491}
+  - {fileID: 8691404036219874489}
+  - {fileID: 8691404036219874495}
+  - {fileID: 8691404036219874493}
   step: 0
 --- !u!114 &2584370536036615001
 MonoBehaviour:
@@ -245,5 +245,25 @@ GameObject:
 --- !u!4 &8691404036220366997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: c428101f4ae3e124c905a70d548e6181, type: 3}
+  m_PrefabInstance: {fileID: 8691404036219972125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8691404036219874491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: c428101f4ae3e124c905a70d548e6181, type: 3}
+  m_PrefabInstance: {fileID: 8691404036219972125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8691404036219874489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: c428101f4ae3e124c905a70d548e6181, type: 3}
+  m_PrefabInstance: {fileID: 8691404036219972125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8691404036219874495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: c428101f4ae3e124c905a70d548e6181, type: 3}
+  m_PrefabInstance: {fileID: 8691404036219972125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8691404036219874493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: c428101f4ae3e124c905a70d548e6181, type: 3}
   m_PrefabInstance: {fileID: 8691404036219972125}
   m_PrefabAsset: {fileID: 0}

@@ -59,7 +59,7 @@ public class PlayerAudio : MonoBehaviour
             VibeMessageHandler messageHandler = collider.GetComponent<VibeMessageHandler>();
             if(messageHandler)
             {
-                messageHandler.VibeMessage(barkEffectVibe, 0.1f);
+                messageHandler.VibeMessage(barkEffectVibe, 0.1f, true);
             }
         }
     }
