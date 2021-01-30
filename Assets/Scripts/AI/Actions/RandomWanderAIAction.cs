@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "GGJ 2021/AI/Action/Random Wander")]
+[CreateAssetMenu(menuName = "GGJ 2021/AI/Action/Human/Random Wander")]
 public class RandomWanderAIAction : AIAction
 {
     [SerializeField]

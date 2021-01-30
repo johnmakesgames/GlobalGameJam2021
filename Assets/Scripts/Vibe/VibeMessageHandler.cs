@@ -20,9 +20,18 @@ public class VibeMessageHandler : MonoBehaviour
     /// <summary>
     /// Send a vibe message that will be broadcast to listeners.
     /// </summary>
-    public void VibeMessage(Vibe vibe, float scoreChange)
+    public void VibeMessage(Vibe vibe, float scoreChange, bool spawnIndicator)
     {
-        SpawnIndicator(vibe);
+        if(vibe == null)
+        {
+            Debug.LogWarning("VibeMessageHandler received message with invalid vibe.");
+            return;
+        }
+
+        if (spawnIndicator)
+        {
+            SpawnIndicator(vibe);
+        }
 
         EventVibeMessage?.Invoke(vibe, scoreChange);
     }

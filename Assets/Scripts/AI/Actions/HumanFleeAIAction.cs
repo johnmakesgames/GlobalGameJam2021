@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "GGJ 2021/AI/Action/Human Flee")]
+[CreateAssetMenu(menuName = "GGJ 2021/AI/Action/Human/Flee")]
 public class HumanFleeAIAction : AIAction
 {
     [Tooltip("The distance from the AI controller the flee point is set to.")]
@@ -50,6 +50,12 @@ public class HumanFleeAIAction : AIAction
 
     public override void Act(CreatureAIController controller)
     {
-        Debug.DrawLine(controller.transform.position, fleeDestination, Color.yellow);
+    }
+
+    protected override void OnStateExit(CreatureAIController controller)
+    {
+        base.OnStateExit(controller);
+
+        navAgent.enabled = false;
     }
 }

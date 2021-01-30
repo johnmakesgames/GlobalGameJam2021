@@ -84,13 +84,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: vibeDebugVerticalOffset
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: recognisedVibes.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: recognisedVibes.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: ebeea2a29f7d949458d4d18a673d0eaa, type: 2}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: recognisedVibes.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 127a1c107bbd9de488db114cda6c7920, type: 2}
+    - target: {fileID: 1002508140639595220, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: recognisedVibes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6312bb9b6cbe4744384c0e18c7de5db7, type: 2}
     - target: {fileID: 1127139182049667252, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_RootOrder
       value: 1
