@@ -10,7 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerAnimationState CurrentAnimationState;
 
 
-    public enum PlayerAnimationState { Idle, Walking, Running, Shaking, Digging, Jumping, Falling, Attacking, Sniffing, WaggingTail, Sleeping, Petting, Dead }
+    public enum PlayerAnimationState { Idle, Walking, Running, Shaking, Digging, Jumping, Falling, Attacking, Sniffing, WaggingTail, Sleeping, Petting, Trick, Dead }
     private ParticleSystem sniffParticles;
     private PlayerAnimationState PreviousState;
 
@@ -101,7 +101,12 @@ public class PlayerAnimation : MonoBehaviour
                 playerAnimator.SetTrigger("Digging"); // Change this animation
             }
 
-            if(CurrentAnimationState == PlayerAnimationState.Dead)
+            if (CurrentAnimationState == PlayerAnimationState.Trick)
+            {
+                playerAnimator.SetTrigger("Trick");
+            }
+
+            if (CurrentAnimationState == PlayerAnimationState.Dead)
             {
                 playerAnimator.SetTrigger("Dead");
             }
@@ -190,6 +195,10 @@ public class PlayerAnimation : MonoBehaviour
 
             case PlayerAnimationState.WaggingTail:
                 playerAnimator.ResetTrigger("WaggingTail");
+                break;
+
+            case PlayerAnimationState.Trick:
+                playerAnimator.ResetTrigger("Trick");
                 break;
         }
     }

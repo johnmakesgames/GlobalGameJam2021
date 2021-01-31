@@ -89,44 +89,15 @@ public class PlayerMovement : MonoBehaviour
 
         playerController.Move(playerVelocity);
 
-
-        if (AbleToDig)
-        {
-            //Pop up with "Press 'E' to Dig"
-        }
-
-
-        // Context Based Actions : WagTail, Pet, Shake, Dig
-
         if (Input.GetKey(KeyCode.E))
         {
-            // Determine which Action to perform
-            //Wag, Pet, Shake, Dig
-
-            if (Input.GetKey(KeyCode.Alpha3))
-            {
-                //Wag Tail
-                CurrentState = PlayerAnimation.PlayerAnimationState.WaggingTail;
-            }
-
-            if (Input.GetKey(KeyCode.Alpha4))
-            {
-                //Be Pet
-                CurrentState = PlayerAnimation.PlayerAnimationState.Petting;
-            }
-
-            if (Input.GetKey(KeyCode.Alpha5))
-            {
-                CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
-            }
-
             if (AbleToDig)
             {
                 CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
 
                 Destroy(CurrentDigZone);
 
-                DigZones = GameObject.FindGameObjectsWithTag("Diggable"); //Not Currently Updating on Dig Zone removal
+                DigZones = GameObject.FindGameObjectsWithTag("Diggable");
 
                 AbleToDig = false;
             }
@@ -147,6 +118,27 @@ public class PlayerMovement : MonoBehaviour
             FindNearestDigZone();
         }
 
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            //Wag Tail
+            CurrentState = PlayerAnimation.PlayerAnimationState.WaggingTail;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            //Be Pet
+            CurrentState = PlayerAnimation.PlayerAnimationState.Petting;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            CurrentState = PlayerAnimation.PlayerAnimationState.Trick;
+        }
 
         if (!Alive) // if health == 0
         {
