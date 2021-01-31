@@ -36,6 +36,10 @@ public class ItemType : ScriptableObject
     [SerializeField]
     private Pickup pickupPrefab = null;
 
+    [Tooltip("Prefab for the item held by characters in the world.")]
+    [SerializeField]
+    private GameObject heldItemPrefab = null;
+
     /// <summary>
     /// In-game name for the item.
     /// </summary>
@@ -65,4 +69,9 @@ public class ItemType : ScriptableObject
     /// Prefab for the item's pickup game object.
     /// </summary>
     public Pickup PickupPrefab { get { return pickupPrefab; } }
+
+    /// <summary>
+    /// Prefab for the item held by characters in the world.
+    /// </summary>
+    public GameObject HeldItemPrefab { get { return heldItemPrefab; } }
 }

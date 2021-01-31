@@ -28,6 +28,10 @@ public class Trading : MonoBehaviour, IInteractable
     [SerializeField]
     private Transform tradingWidgetParent = null;
 
+    [Tooltip("The transform the held item will be attached to.")]
+    [SerializeField]
+    private Transform heldItemAnchor = null;
+
     [Header("Vibes")]
     [Tooltip("Required reference to the anger vibe.")]
     [SerializeField]
@@ -48,6 +52,11 @@ public class Trading : MonoBehaviour, IInteractable
     private VibeMessageHandler vibeMessageHandler = null;
 
     /// <summary>
+    /// The instance for the held item.
+    /// </summary>
+    private GameObject heldItemInstance = null;
+
+    /// <summary>
     /// The <see cref="ItemType"/> wanted by this trader.
     /// </summary>
     public ItemType WantedItem { get { return wantedItem; } }
@@ -57,6 +66,11 @@ public class Trading : MonoBehaviour, IInteractable
         UIWidgetFactory.SpawnUIWidget(tradingWidgetPrefab, gameObject, tradingWidgetParent);
 
         vibeMessageHandler = GetComponent<VibeMessageHandler>();
+
+        if(givenItem && (givenItem.HeldItemPrefab != null))
+        {
+            heldItemInstance = Instantiate(givenItem.HeldItemPrefab, heldItemAnchor);
+        }
     }
 
     public string GetInteractionText(InteractionController instigator)
@@ -103,6 +117,8 @@ public class Trading : MonoBehaviour, IInteractable
                         // Spawn the pickup.
                         Pickup pickup = Instantiate(givenItem.PickupPrefab);
                         pickup.transform.position = pickupSpawnPoint.position;
+
+                        Destroy(heldItemInstance);
                     }
 
                     // Incorrect item.
