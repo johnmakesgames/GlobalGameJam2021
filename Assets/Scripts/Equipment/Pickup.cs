@@ -42,10 +42,8 @@ public class Pickup : MonoBehaviour
     {
         if(pickupVisual != null)
         {
-            Vector3 currentPosition = pickupVisual.transform.position;
-            currentPosition.y = verticalBobOffset + (Mathf.Sin(Time.time * verticalBobSpeed) * verticalBobScalar);
+            pickupVisual.transform.Translate(new Vector3(0.0f, Mathf.Sin(Time.time) * verticalBobScalar * Time.deltaTime/*verticalBobOffset + (Mathf.Sin(Time.time * verticalBobSpeed) * verticalBobScalar*//*)*/, 0.0f));
             pickupVisual.transform.Rotate(rotationAxis, spinSpeed * Time.deltaTime);
-            pickupVisual.transform.position = currentPosition;
         }
     }
 

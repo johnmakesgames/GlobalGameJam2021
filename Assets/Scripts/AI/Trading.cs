@@ -15,6 +15,10 @@ public class Trading : MonoBehaviour, IInteractable
     [SerializeField]
     private ItemType givenItem = null;
 
+    [Tooltip("The spawn location for the pickup.")]
+    [SerializeField]
+    private Transform pickupSpawnPoint = null;
+
     [Header("UI")]
     [Tooltip("The prefab for the trading UI widget.")]
     [SerializeField]
@@ -95,6 +99,10 @@ public class Trading : MonoBehaviour, IInteractable
 
                         // Let the listeners know the trade is complete.
                         EventTradeComplete?.Invoke();
+
+                        // Spawn the pickup.
+                        Pickup pickup = Instantiate(givenItem.PickupPrefab);
+                        pickup.transform.position = pickupSpawnPoint.position;
                     }
 
                     // Incorrect item.

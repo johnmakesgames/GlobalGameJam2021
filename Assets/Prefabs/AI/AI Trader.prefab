@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 2995454754349827502}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1816598727377080722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043262981729328481}
+  m_Layer: 6
+  m_Name: Pickup Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043262981729328481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816598727377080722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.607, z: 0.431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2995454754349827502}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3581046948510900154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wantedItem: {fileID: 11400000, guid: c6c59395bed0cde4896e3bf1168e0918, type: 2}
   givenItem: {fileID: 11400000, guid: 7fe71eb5e19f9b0428e2e47bf54024a0, type: 2}
+  pickupSpawnPoint: {fileID: 1043262981729328481}
   tradingWidgetPrefab: {fileID: 3671409734161420829, guid: 433e6d3e1578c49419fa84a34e8f36c5, type: 3}
   tradingWidgetParent: {fileID: 3957956884979501300}
   angerVibe: {fileID: 11400000, guid: cd888f153533fba40b9c00a02dbf52d9, type: 2}
