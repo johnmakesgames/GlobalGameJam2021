@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fdf705956271f4689ee29c735e3fe6, type: 3}
   m_Name: Human Flee From Fear
   m_EditorClassIdentifier: 
-  entryActions: []
+  entryActions:
+  - {fileID: 11400000, guid: 0459e9b82efd107419050c41658460e4, type: 2}
   exitActions: []
   actions:
   - {fileID: 11400000, guid: 68725075daa509543ac1a6a14d1df5d5, type: 2}
