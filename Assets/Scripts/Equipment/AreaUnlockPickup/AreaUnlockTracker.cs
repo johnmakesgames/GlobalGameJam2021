@@ -8,7 +8,7 @@ public class AreaUnlockTracker : MonoBehaviour
 
     public delegate void ItemPickedUp(int counter);
     public delegate void KeyPickedUp(string keyColour);
-    public static event KeyPickedUp MapPickupCounterIncreased;
+    public static event KeyPickedUp KeyPickedup;
     public static event ItemPickedUp BonePickupCounterIncreased;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class AreaUnlockTracker : MonoBehaviour
         {
             string keyColour = (type.DisplayName.Split('_'))[1];
 
-            MapPickupCounterIncreased(keyColour);
+            KeyPickedup(keyColour);
         }
         else if (type.DisplayName == "BonePickup")
         {

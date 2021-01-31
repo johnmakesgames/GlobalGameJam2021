@@ -389,6 +389,7 @@ MonoBehaviour:
   - {fileID: 3629598324778195498, guid: 761831961ad1c34408087b058aa9756f, type: 3}
   - {fileID: 8836618743608592063, guid: 52ae228eb48125d4e99d8c740d3dcdfb, type: 3}
   - {fileID: 8836618743608592063, guid: 9ad681f504a3b87448b67aabac066bde, type: 3}
+  - {fileID: 8836618743608592063, guid: d4a39130994b0cc42b6b62ff04d42188, type: 3}
 --- !u!114 &4246794233585102546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   aweVibe: {fileID: 11400000, guid: c64ae5e72dc8e0d45be53fb4c3b8a6af, type: 2}
   aweMagnitudePerTrick: 0.1
   trickVibeRadius: 5
+  trickDuration: 1
 --- !u!114 &5169986503129171146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058e93b1d723d784a8171f71b14a5e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLives: 10
+  remainingLives: 0
   respawnLocation: {x: 0, y: 0, z: 0}
   deaths: []
 --- !u!114 &8815300066020525507

@@ -7,14 +7,14 @@ public class DestroyOnItemPickup : MonoBehaviour
     public string wantedKeyName;
     void Start()
     {
-        AreaUnlockTracker.MapPickupCounterIncreased += OnItemPickedUp;
+        AreaUnlockTracker.KeyPickedup += OnItemPickedUp;
     }
 
     void OnItemPickedUp(string collectedKey)
     {
         if (collectedKey == wantedKeyName)
         {
-            AreaUnlockTracker.MapPickupCounterIncreased -= OnItemPickedUp;
+            AreaUnlockTracker.KeyPickedup -= OnItemPickedUp;
             Destroy(this.gameObject);
         }
     }
