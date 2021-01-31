@@ -14,6 +14,11 @@ public class UpdateBoneTextUI : MonoBehaviour
         AreaUnlockTracker.BonePickupCounterIncreased += BonePickedUp;
     }
 
+    private void OnDestroy()
+    {
+        AreaUnlockTracker.BonePickupCounterIncreased -= BonePickedUp;
+    }
+
     void BonePickedUp(int boneCount)
     {
         boneText.text = boneCount.ToString();

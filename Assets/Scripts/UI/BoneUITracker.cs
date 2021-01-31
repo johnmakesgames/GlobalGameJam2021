@@ -10,6 +10,11 @@ public class BoneUITracker : MonoBehaviour
         AreaUnlockTracker.BonePickupCounterIncreased += BoneCountUpdated;
     }
 
+    private void OnDestroy()
+    {
+        AreaUnlockTracker.BonePickupCounterIncreased -= BoneCountUpdated;
+    }
+
     void BoneCountUpdated(int boneCount)
     {
         bones = boneCount;

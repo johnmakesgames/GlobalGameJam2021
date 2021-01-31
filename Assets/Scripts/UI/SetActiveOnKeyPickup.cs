@@ -31,6 +31,11 @@ public class SetActiveOnKeyPickup : MonoBehaviour
         AreaUnlockTracker.KeyPickedup += OnKeyPickedUp;
     }
 
+    private void OnDestroy()
+    {
+        AreaUnlockTracker.KeyPickedup -= OnKeyPickedUp;
+    }
+
     void OnKeyPickedUp(string collectedKey)
     {
         GameObject key = keyValuePairs[collectedKey];

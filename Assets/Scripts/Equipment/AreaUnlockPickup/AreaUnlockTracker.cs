@@ -18,6 +18,11 @@ public class AreaUnlockTracker : MonoBehaviour
         Pickup.OnItemPickedUp += OnItemPickedUp;
     }
 
+    private void OnDestroy()
+    {
+        Pickup.OnItemPickedUp -= OnItemPickedUp;
+    }
+
     void OnItemPickedUp(ItemType type)
     {
         if (type.DisplayName.StartsWith("MapPickup"))
