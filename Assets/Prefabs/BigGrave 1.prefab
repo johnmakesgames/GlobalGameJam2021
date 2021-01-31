@@ -47,6 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graveIndex: 0
   graveText: {fileID: 4590110585495899480}
+--- !u!64 &1895821455668994371
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756076656533681879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a9d1e8c5c487f59449feb8247adb1d08, type: 3}
 --- !u!1 &4590110585495899480
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6d0daa4036bab644b201bb421a19889, type: 3}
+--- !u!1 &2756076656533681879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: b6d0daa4036bab644b201bb421a19889, type: 3}
+  m_PrefabInstance: {fileID: 2756076656533581943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2756076656533187319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b6d0daa4036bab644b201bb421a19889, type: 3}

@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4954969677531210745, guid: 68f08698bd1bfbe4aa269ff75cb51d9c, type: 3}
+      propertyPath: entryState
+      value: 
+      objectReference: {fileID: 11400000, guid: 1bf4f262f1c343e47bdc4cb3a20fbcf5, type: 2}
     - target: {fileID: 4975781986038175496, guid: 68f08698bd1bfbe4aa269ff75cb51d9c, type: 3}
       propertyPath: m_Name
       value: Rescued Human
