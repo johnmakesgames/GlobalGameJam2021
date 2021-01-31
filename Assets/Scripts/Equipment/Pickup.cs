@@ -49,11 +49,14 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Pickup expects the player equipment controller.
-        EquipmentController equipmentController = other.gameObject.GetComponent<EquipmentController>();
-        if(equipmentController != null)
+        if (itemType.Family == ItemFamily.Equippable)
         {
-            equipmentController.AddItemToInventory(itemType);
+            // Pickup expects the player equipment controller.
+            EquipmentController equipmentController = other.gameObject.GetComponent<EquipmentController>();
+            if (equipmentController != null)
+            {
+                equipmentController.AddItemToInventory(itemType);
+            }
         }
 
         OnItemPickedUp?.Invoke(itemType);
