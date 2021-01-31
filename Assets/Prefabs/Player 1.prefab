@@ -41,6 +41,9 @@ GameObject:
   - component: {fileID: 4246794233585102546}
   - component: {fileID: 5169986503129171146}
   - component: {fileID: 3401877133843180748}
+  - component: {fileID: 4787360766156384125}
+  - component: {fileID: 8815300066020525507}
+  - component: {fileID: 7971376834125813748}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -430,6 +433,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereCastRadius: 2
   sphereCastMaxDistance: 0.7
+--- !u!114 &4787360766156384125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504948727062493853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058e93b1d723d784a8171f71b14a5e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {x: 0, y: 0, z: 0}
+  deaths: []
+--- !u!114 &8815300066020525507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504948727062493853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ba1814412fe9a4ca679b9d24e2632a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7971376834125813748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504948727062493853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019c6bef1c6985c44900ec4957b1757e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8776776612761304849
 GameObject:
   m_ObjectHideFlags: 0
