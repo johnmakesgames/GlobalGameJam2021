@@ -17,4 +17,5 @@ MonoBehaviour:
   itemVibes: []
   icon: {fileID: 21300000, guid: 736b8badcd43c544dbf7a9df8fc3f8fe, type: 3}
   equipmentPrefab: {fileID: 0}
-  pickupPrefab: {fileID: 0}
+  pickupPrefab: {fileID: 4984722840153343056, guid: 7c08a0c671883fb47960705136ed1ed2, type: 3}
+  heldItemPrefab: {fileID: 24247813956959637, guid: 3cd616ce7f05d6b4ba56d04f27f93b29, type: 3}

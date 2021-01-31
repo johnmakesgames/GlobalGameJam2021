@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &362130949857252655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.77942777
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.23784816
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.53063405
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.23312683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -187.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -109.037994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371794791905083538, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -141.642
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922660291458229560, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}
+      propertyPath: m_Name
+      value: Squeek Toy Held Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18b7f263b1d36e84394cb181bb06c2b0, type: 3}

@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2951062455904486610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631619405540606369}
+    m_Modifications:
+    - target: {fileID: 5667845712078287608, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_Name
+      value: Kong Toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312914782689015872, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 621e94b16023cf84d9c1b4b25bc3c6d4, type: 3}
+--- !u!1001 &8756895321635299283
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088495625662657508, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135646215204838293, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+      propertyPath: m_Name
+      value: Kong Equipment
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+--- !u!4 &631619405540606369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8162012803707166322, guid: 7b42cb3825eb576448fd9dc2eda2d47e, type: 3}
+  m_PrefabInstance: {fileID: 8756895321635299283}
+  m_PrefabAsset: {fileID: 0}
