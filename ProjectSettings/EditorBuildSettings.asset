@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BadBoyEnding.unity
     guid: da46fa68d08025e4da63420a66afaec5
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 031b78ee5f0a7254b95b1bd31c109dd8
   - enabled: 0
     path: Assets/Scenes/RhiannonScene.unity
     guid: 932d7ce8f23c9374e93ac8137eea7a66
