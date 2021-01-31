@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Scene currentScene = SceneManager.GetActiveScene();
+
         SceneManager.LoadScene(currentScene.name);
     }
 

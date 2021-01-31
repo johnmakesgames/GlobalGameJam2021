@@ -11,6 +11,8 @@ public class OptionsMenu : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
 
+    PlayerAudio playerAudio;
+
     Resolution[] resolutions;
 
     public Dropdown resDropdown;
@@ -60,13 +62,13 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log(volume);
         //TODO:: SET UP VOLUME FOR GAME AUDIO / BARKS
         audioMixer.SetFloat("Volume", volume);
+
+        
     }
 
     public void SetQuality(int quality)
     {
         Debug.Log(QualitySettings.GetQualityLevel());
-//        QualitySettings.SetQualityLevel(quality);
-//        QualitySettings.masterTextureLimit = quality;
 
         if(qualityDropdown.value == 0)
         {
