@@ -14,9 +14,12 @@ public class DropHeldItemAIAction : AIAction
 
     public override void Act(CreatureAIController controller)
     {
-        if(heldItemComponent.IsHoldingItem)
+        if (heldItemComponent != null)
         {
-            heldItemComponent.DropHeldItem();
+            if (heldItemComponent.IsHoldingItem)
+            {
+                heldItemComponent.DropHeldItem();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerTricks : MonoBehaviour
 {
     /// <summary>
@@ -24,10 +25,24 @@ public class PlayerTricks : MonoBehaviour
     [SerializeField]
     private float trickVibeRadius = 5.0f;
 
+    [Tooltip("How long does a trick last?")]
+    [SerializeField]
+    private float trickDuration = 1.0f;
+
     /// <summary>
     /// Is a trick currently happening?
     /// </summary>
-    private bool isPerformingTrick = false;
+    public bool IsPerformingTrick { get; private set; } = false;
+
+    /// <summary>
+    /// Reference to the attached <see cref="PlayerMovement"/> component.
+    /// </summary>
+    private PlayerMovement playerMovement = null;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();    
+    }
 
     private void Update()
     {
@@ -35,15 +50,18 @@ public class PlayerTricks : MonoBehaviour
         {
             PerformTrick();
         }
+
+        if (IsPerformingTrick)
+        {
+            playerMovement.CurrentState = PlayerAnimation.PlayerAnimationState.Trick;
+        }
     }
 
     private void PerformTrick()
     {
-        if(!isPerformingTrick)
+        if(!IsPerformingTrick)
         {
             EventTrickStart?.Invoke();
-
-            // Animate.
 
             // Find nearby collisions within the tricks influence range.
             Collider[] collisions = Physics.OverlapSphere(transform.position, trickVibeRadius);
@@ -56,6 +74,14 @@ public class PlayerTricks : MonoBehaviour
                     vibeMessageHandler.VibeMessage(aweVibe, aweMagnitudePerTrick, true);
                 }
             }
+
+            IsPerformingTrick = true;
+            Invoke("StopPerformingTrick", trickDuration);
         }
+    }
+
+    private void StopPerformingTrick()
+    {
+        IsPerformingTrick = false;
     }
 }
