@@ -743,6 +743,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6793261265520673177, guid: 41a9422d033086f46a6af04308803284, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6793261265520673179, guid: 41a9422d033086f46a6af04308803284, type: 3}
       propertyPath: m_Name
       value: Shield Pickup
@@ -6089,7 +6093,7 @@ GameObject:
   - component: {fileID: 907607083}
   - component: {fileID: 2350453637305020646}
   - component: {fileID: 208448941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sams Updated Player
   m_TagString: Player
   m_Icon: {fileID: 0}
