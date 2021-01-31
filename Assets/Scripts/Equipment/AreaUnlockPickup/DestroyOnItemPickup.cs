@@ -14,6 +14,7 @@ public class DestroyOnItemPickup : MonoBehaviour
     {
         if (collectedKey == wantedKeyName)
         {
+            AreaUnlockTracker.MapPickupCounterIncreased -= OnItemPickedUp;
             Destroy(this.gameObject);
         }
     }

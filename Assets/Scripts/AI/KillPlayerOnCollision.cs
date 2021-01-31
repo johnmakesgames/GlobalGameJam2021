@@ -10,13 +10,17 @@ public class KillPlayerOnCollision : MonoBehaviour
     [SerializeField]
     GameObject bloodSmearPrefab;
 
+    [SerializeField]
+    string reasonForDeath = "Hit by car";
+
     Vector3 locationLastFrame;
     float movedSinceLastFrame = 0;
     bool spawnBlood;
 
     private void Start()
     {
-        bloodSplat.gameObject.SetActive(false);
+        if (bloodSplat)
+            bloodSplat.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class KillPlayerOnCollision : MonoBehaviour
         movedSinceLastFrame = Vector3.Distance(this.transform.position, locationLastFrame) * Time.deltaTime;
         locationLastFrame = this.transform.position;
 
-        if (spawnBlood)
+        if (spawnBlood && bloodSmearPrefab)
         {
             var splat = GameObject.Instantiate(bloodSmearPrefab, new Vector3(this.transform.position.x, -0.05f, this.transform.position.z), this.GetComponentInParent<Transform>().rotation);
 
@@ -35,13 +39,20 @@ public class KillPlayerOnCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if (movedSinceLastFrame > 0.0002f)
+            if (bloodSplat)
             {
-                bloodSplat.gameObject.SetActive(true);
-                StartCoroutine(SetBloodBoolFalseAfterDuration(5));
-                other.gameObject.GetComponent<Respawner>().KillAndRespawn("Hit by car");
+                if (movedSinceLastFrame > 0.0002f)
+                {
+                    bloodSplat.gameObject.SetActive(true);
+                    StartCoroutine(SetBloodBoolFalseAfterDuration(5));
+                    other.gameObject.GetComponent<Respawner>().KillAndRespawn(reasonForDeath);
+                }
+            }
+            else
+            {
+                other.gameObject.GetComponent<Respawner>().KillAndRespawn(reasonForDeath);
             }
         }
     }

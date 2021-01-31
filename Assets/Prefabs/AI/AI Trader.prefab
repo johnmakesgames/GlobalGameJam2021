@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 2995454754349827502}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4032887045193641715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4389298599002729737}
+  m_Layer: 0
+  m_Name: Held Item Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4389298599002729737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4032887045193641715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.169, y: 0.057, z: 0.069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4043012831286850226}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3581046948510900154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -91,6 +121,7 @@ MonoBehaviour:
   pickupSpawnPoint: {fileID: 1043262981729328481}
   tradingWidgetPrefab: {fileID: 3671409734161420829, guid: 433e6d3e1578c49419fa84a34e8f36c5, type: 3}
   tradingWidgetParent: {fileID: 3957956884979501300}
+  heldItemAnchor: {fileID: 4389298599002729737}
   angerVibe: {fileID: 11400000, guid: cd888f153533fba40b9c00a02dbf52d9, type: 2}
   happyVibe: {fileID: 11400000, guid: 02e02ee26e66b194980e04c46d292896, type: 2}
 --- !u!1001 &4041138099092984622
@@ -161,6 +192,11 @@ PrefabInstance:
 --- !u!95 &4127516359390498250 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95389170962898660, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
+  m_PrefabInstance: {fileID: 4041138099092984622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4043012831286850226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4128732659769756, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
   m_PrefabInstance: {fileID: 4041138099092984622}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4062502038360511673
