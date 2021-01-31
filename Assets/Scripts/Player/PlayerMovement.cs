@@ -20,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     private GameObject[] DigZones;
     public GameObject CurrentDigZone;
     private GameObject NearestDigZone;
+    private PlayerTricks playerTricks = null;
+
+    private void Awake()
+    {
+        playerTricks = GetComponent<PlayerTricks>();  
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,29 +48,32 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(0, 0, 0);
 
-        if (Input.GetKey(KeyCode.W))
+        if (!playerTricks.IsPerformingTrick)
         {
-            // move in the direction of camera
-            moveDirection = playerCamera.transform.forward;
-        }
+            if (Input.GetKey(KeyCode.W))
+            {
+                // move in the direction of camera
+                moveDirection = playerCamera.transform.forward;
+            }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            // reverse S
-            moveDirection = -playerCamera.transform.forward;
-        }
+            if (Input.GetKey(KeyCode.S))
+            {
+                // reverse S
+                moveDirection = -playerCamera.transform.forward;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            // Move Camera Left
-            moveDirection = -playerCamera.transform.right;
-        }
+            if (Input.GetKey(KeyCode.A))
+            {
+                // Move Camera Left
+                moveDirection = -playerCamera.transform.right;
+            }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            // Move Camera Right
-            moveDirection = playerCamera.transform.right;
+            if (Input.GetKey(KeyCode.D))
+            {
+                // Move Camera Right
+                moveDirection = playerCamera.transform.right;
 
+            }
         }
 
         moveDirection.y = 0;
@@ -138,10 +147,10 @@ public class PlayerMovement : MonoBehaviour
             CurrentState = PlayerAnimation.PlayerAnimationState.Shaking;
         }
 
-        if (Input.GetKey(KeyCode.Alpha6))
-        {
-            CurrentState = PlayerAnimation.PlayerAnimationState.Trick;
-        }
+        //if (Input.GetKey(KeyCode.Alpha6))
+        //{
+        //    CurrentState = PlayerAnimation.PlayerAnimationState.Trick;
+        //}
 
         if (!Alive) // if health == 0
         {
