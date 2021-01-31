@@ -184,6 +184,10 @@ PrefabInstance:
       value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
+      propertyPath: avoidancePriority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546910357035788756, guid: 834f163b926adbd4eaf183e7a7838a1f, type: 3}
       propertyPath: m_ObstacleAvoidanceType
       value: 0
       objectReference: {fileID: 0}

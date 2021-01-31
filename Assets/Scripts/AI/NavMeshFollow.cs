@@ -26,9 +26,6 @@ public class NavMeshFollow : MonoBehaviour
 
     private void Update()
     {
-        if (agentController.AiType == AITypes.CAR)
-            Debug.DrawLine(this.GetComponent<Transform>().position, targetLocation, Color.green);
-
         if (Vector3.Distance(targetLocation, this.GetComponent<Transform>().position) < 2)
         {
             switch (agentController.AiType)
