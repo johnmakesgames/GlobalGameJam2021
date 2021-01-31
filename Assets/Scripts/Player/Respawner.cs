@@ -18,7 +18,10 @@ public class Respawner : MonoBehaviour
 
     public void KillAndRespawn(string death)
     {
+        CharacterController col = GetComponent<CharacterController>();
+        col.enabled = false;
         deaths.Add(death);
-        this.transform.TransformPoint(Vector3.zero);
-    }    
+        this.transform.SetPositionAndRotation(respawnLocation, Quaternion.identity);
+        col.enabled = true;
+    }
 }
