@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DestroyOnItemPickup : MonoBehaviour
 {
-    public int pickupIndex;
+    public string wantedKeyName;
     void Start()
     {
         AreaUnlockTracker.MapPickupCounterIncreased += OnItemPickedUp;
     }
 
-    void OnItemPickedUp(int counter)
+    void OnItemPickedUp(string collectedKey)
     {
-        if (counter == pickupIndex)
+        if (collectedKey == wantedKeyName)
         {
             Destroy(this.gameObject);
         }

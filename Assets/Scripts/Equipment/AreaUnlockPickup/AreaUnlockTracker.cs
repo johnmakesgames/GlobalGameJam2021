@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class AreaUnlockTracker : MonoBehaviour
 {
-    private int pickupCounter;
     private int bonesCollected;
 
     public delegate void ItemPickedUp(int counter);
-    public static event ItemPickedUp MapPickupCounterIncreased;
+    public delegate void KeyPickedUp(string keyColour);
+    public static event KeyPickedUp MapPickupCounterIncreased;
     public static event ItemPickedUp BonePickupCounterIncreased;
 
     // Start is called before the first frame update
     void Start()
     {
-        pickupCounter = 0;
         bonesCollected = 0;
         Pickup.OnItemPickedUp += OnItemPickedUp;
     }
 
     void OnItemPickedUp(ItemType type)
     {
-        if (type.DisplayName == "MapPickup")
+        if (type.DisplayName.StartsWith("MapPickup"))
         {
-            pickupCounter++;
-            MapPickupCounterIncreased(pickupCounter);
+            string keyColour = (type.DisplayName.Split('_'))[1];
+
+            MapPickupCounterIncreased(keyColour);
         }
         else if (type.DisplayName == "BonePickup")
         {
