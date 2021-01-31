@@ -25,6 +25,8 @@ public class Diggable : MonoBehaviour
             var playerMoveScript = (PlayerMovement)other.gameObject.GetComponent("PlayerMovement");
             playerMoveScript.AbleToDig = true;
             playerMoveScript.CurrentDigZone = this.gameObject;
+
+            //Text Output "Press E to Dig"
         }
     }
 
@@ -32,11 +34,7 @@ public class Diggable : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("Player Exit");
-
-            //cast to player
-            //player movement
-            //AbleToDig = false;
+            //Remove Text
         }
     }
 }
