@@ -19,6 +19,7 @@ public class PlayerGrave : MonoBehaviour
     {
         respawner = GameObject.FindGameObjectWithTag("Player").GetComponent<Respawner>();
         respawner.deadCallback += AddToGravestone;
+        graveText.GetComponent<TextMeshProUGUI>().SetText("");
     }
 
     void AddToGravestone()
