@@ -95,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 CurrentState = PlayerAnimation.PlayerAnimationState.Digging;
 
+                //Create Item here
+
                 Destroy(CurrentDigZone);
 
                 DigZones = GameObject.FindGameObjectsWithTag("Diggable");

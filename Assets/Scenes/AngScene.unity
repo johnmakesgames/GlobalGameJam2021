@@ -6129,6 +6129,18 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Rotation.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2075886338736306647, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: angryBarkNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: a54cf93f930c5cd4a884ef25caeeade7, type: 3}
+    - target: {fileID: 2075886338736306647, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: happyBarkNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: aceff1ae9ad5aa14a9814fa2095c481b, type: 3}
+    - target: {fileID: 2075886338736306647, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+      propertyPath: normalBarkNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: 71f0bbf0189748249875b8bc13d95fee, type: 3}
     - target: {fileID: 3245044010143920896, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -6712,6 +6724,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2075886338222408583, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
     - {fileID: 2075886338222408582, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
+    - {fileID: 2075886338222408602, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8861ca4a8c3e6e540adc1803d23eeded, type: 3}
 --- !u!4 &2471294631824225410 stripped
 Transform:
