@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fdf705956271f4689ee29c735e3fe6, type: 3}
+  m_Name: Blue Key Man Idle
+  m_EditorClassIdentifier: 
+  entryActions: []
+  exitActions: []
+  actions: []
+  transitions:
+  - decision: {fileID: 11400000, guid: 223ac22e58bffe54bb4282692e967fde, type: 2}
+    passState: {fileID: 11400000, guid: 75741a3bb723cef479e4749f1323ef04, type: 2}
+    failState: {fileID: 0}
+  - decision: {fileID: 11400000, guid: 3acf50cf36724b3458a035907c9b0615, type: 2}
+    passState: {fileID: 11400000, guid: f3a480d4d55ab544eb088ed15e0c97fc, type: 2}
+    failState: {fileID: 0}
+  animations:
+  - {fileID: -203655887218126122, guid: 19ea018408d0aee4d86a52571d061b91, type: 3}
