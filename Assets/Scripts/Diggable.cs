@@ -5,16 +5,25 @@ using UnityEngine;
 public class Diggable : MonoBehaviour
 {
     private BoxCollider digArea;
+    public GameObject digDrop;
+
     // Start is called before the first frame update
     void Start()
     {
         digArea = GetComponent<BoxCollider>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void BeDug()
+    {
+        Instantiate(digDrop, transform.position, Quaternion.identity);
+        //Drop Item
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
